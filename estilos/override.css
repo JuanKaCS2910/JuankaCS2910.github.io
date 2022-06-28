@@ -1,0 +1,24 @@
+.timeline .timeline-content:before {
+    content: "";
+    display: block;
+    position: absolute;
+    border: 10px solid #ef0707;
+    top: 20px;
+    left: 0px;
+    border-right-color: var(--app-component-bg);
+}
+
+.foto-cv{
+    margin-top: 15px;
+    margin-left: -3.5px;
+    /* margin:15px auto; */
+  /*border-radius:5px;
+   border: 1px solid #999; 
+  padding:2px;*/
+  width:120px;
+  height:90px;
+  background-size: 100% 100%;
+  background-repeat:no-repeat;
+  background:url(../images/Me.jpg);
+  background-size: cover;
+}

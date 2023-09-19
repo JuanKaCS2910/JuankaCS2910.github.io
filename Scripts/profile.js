@@ -8,6 +8,11 @@ $(document).ready(function(){
         $("#profile-about").removeClass("show");
         $("#profile-about").removeClass("active");
         $("#profile-about-nav").removeClass("active");
+
+        $("#profile-portafolio").removeClass("show");
+        $("#profile-portafolio").removeClass("active");
+        $("#profile-portafolio-nav").removeClass("active");
+
     });
 
     $("#profile-about-nav").click(function(){
@@ -19,6 +24,27 @@ $(document).ready(function(){
         $("#profile-laboral").removeClass("show");
         $("#profile-laboral").removeClass("active");
         $("#profile-laboral-nav").removeClass("active");
+
+        $("#profile-portafolio").removeClass("show");
+        $("#profile-portafolio").removeClass("active");
+        $("#profile-portafolio-nav").removeClass("active");
+ 
+
+    });
+
+    $("#profile-portafolio-nav").click(function(){
+
+        $("#profile-portafolio").addClass("show");
+        $("#profile-portafolio").addClass("active");
+        $("#profile-portafolio-nav").addClass("active");
+
+        $("#profile-laboral").removeClass("show");
+        $("#profile-laboral").removeClass("active");
+        $("#profile-laboral-nav").removeClass("active");
+
+        $("#profile-about").removeClass("show");
+        $("#profile-about").removeClass("active");
+        $("#profile-about-nav").removeClass("active");
  
 
     });

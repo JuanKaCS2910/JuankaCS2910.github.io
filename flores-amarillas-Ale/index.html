@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,55 +15,154 @@
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #fff8c6, #ffe66d);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       min-height: 100vh;
-      overflow-x: hidden;
-      text-align: center;
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(255, 255, 255, .45),
+          transparent 50%
+        ),
+        linear-gradient(135deg, #fff8c6, #ffe66d);
+
       color: #4d3b00;
+      overflow-x: hidden;
     }
+
+    /* =========================
+       PANTALLA INICIAL
+    ========================== */
 
     .inicio {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 30px;
-      transition: 1s;
+      position: relative;
+      padding: 30px 20px 120px;
     }
 
-    .inicio h1 {
-      font-size: 2.4rem;
-      margin-bottom: 15px;
+    .contenido-inicio {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
       animation: aparecer 1.5s ease;
     }
 
-    .inicio p {
-      font-size: 1.2rem;
+    .flor-principal {
+      font-size: 5rem;
+      margin-bottom: 20px;
+      animation: flotar 3s ease-in-out infinite;
+      filter: drop-shadow(0 8px 10px rgba(120, 90, 0, .15));
+    }
+
+    .inicio h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .inicio .subtitulo {
+      font-size: 1.15rem;
       margin-bottom: 30px;
+      opacity: .85;
     }
 
     button {
       border: none;
-      padding: 16px 30px;
+      padding: 16px 32px;
       font-size: 1.1rem;
       border-radius: 40px;
-      background: #f5b700;
+      background: linear-gradient(135deg, #f5b700, #ffbf00);
       color: white;
       cursor: pointer;
-      box-shadow: 0 8px 20px rgba(0,0,0,.15);
-      transition: .3s;
+      box-shadow: 0 10px 25px rgba(150, 110, 0, .22);
+      transition: .3s ease;
     }
 
     button:hover {
-      transform: scale(1.08);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 15px 30px rgba(150, 110, 0, .28);
     }
+
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    .footer {
+      position: absolute;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      width: min(850px, 90%);
+
+      border-top: 1px solid rgba(100, 75, 0, .20);
+      padding-top: 20px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 35px;
+
+      font-size: .88rem;
+      color: #554500;
+    }
+
+    .footer-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-align: left;
+    }
+
+    .footer-icon {
+      font-size: 1.8rem;
+    }
+
+    .developer-icon {
+      font-family: Consolas, monospace;
+      font-weight: bold;
+      font-size: 1.7rem;
+    }
+
+    .footer-divider {
+      width: 1px;
+      height: 45px;
+      background: rgba(100, 75, 0, .25);
+    }
+
+    .footer-title {
+      font-size: .78rem;
+      opacity: .75;
+      margin-bottom: 3px;
+    }
+
+    .footer-value {
+      font-weight: 600;
+    }
+
+    .footer a {
+      color: #554500;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+
+    /* =========================
+       SORPRESA
+    ========================== */
 
     .sorpresa {
       display: none;
       min-height: 100vh;
       padding: 50px 20px;
+      text-align: center;
       animation: aparecer 1.5s ease;
     }
 
@@ -86,13 +186,18 @@
     }
 
     .mensaje {
-      background: rgba(255,255,255,.75);
+      background: rgba(255, 255, 255, .72);
       backdrop-filter: blur(10px);
+
       max-width: 550px;
       margin: auto;
-      padding: 30px;
+      padding: 35px;
+
       border-radius: 25px;
-      box-shadow: 0 10px 35px rgba(0,0,0,.12);
+
+      box-shadow:
+        0 15px 40px rgba(100, 80, 0, .12);
+
       font-size: 1.1rem;
       line-height: 1.8;
     }
@@ -102,15 +207,28 @@
       font-weight: bold;
     }
 
+
+    /* =========================
+       FLORES CAYENDO
+    ========================== */
+
     .petalo {
       position: fixed;
-      top: -40px;
+      top: -50px;
       font-size: 25px;
       z-index: 10;
+      pointer-events: none;
+
       animation: caer linear forwards;
     }
 
+
+    /* =========================
+       ANIMACIONES
+    ========================== */
+
     @keyframes aparecer {
+
       from {
         opacity: 0;
         transform: translateY(20px);
@@ -122,7 +240,9 @@
       }
     }
 
+
     @keyframes crecer {
+
       0% {
         transform: scale(0);
         opacity: 0;
@@ -138,15 +258,62 @@
       }
     }
 
-    @keyframes caer {
-      to {
-        transform: translateY(110vh) rotate(720deg);
+
+    @keyframes flotar {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(-2deg);
+      }
+
+      50% {
+        transform: translateY(-10px) rotate(2deg);
       }
     }
 
-    @media(max-width:600px) {
+
+    @keyframes caer {
+
+      to {
+        transform:
+          translateY(110vh)
+          rotate(720deg);
+      }
+    }
+
+
+    /* =========================
+       RESPONSIVE - CELULAR
+    ========================== */
+
+    @media (max-width: 650px) {
+
+      .inicio {
+        padding-bottom: 200px;
+      }
+
+      .flor-principal {
+        font-size: 4rem;
+      }
+
       .inicio h1 {
         font-size: 2rem;
+      }
+
+      .inicio .subtitulo {
+        font-size: 1rem;
+      }
+
+      .footer {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+        width: 85%;
+      }
+
+      .footer-divider {
+        width: 100%;
+        height: 1px;
       }
 
       .sorpresa h2 {
@@ -156,122 +323,385 @@
       .ramo {
         font-size: 3rem;
       }
+
+      .mensaje {
+        padding: 25px;
+        font-size: 1rem;
+      }
     }
+
   </style>
+
 </head>
+
 
 <body>
 
+
+  <!-- =========================
+       PANTALLA INICIAL
+  ========================== -->
+
   <section class="inicio" id="inicio">
 
-    <h1>Ale, tengo algo para ti 💛</h1>
 
-    <p>
-      Es algo pequeño, pero quería que lo tuvieras hoy.
-    </p>
+    <div class="contenido-inicio">
 
-    <button onclick="abrirSorpresa()">
-      Toca aquí 🌻
-    </button>
+
+      <div class="flor-principal">
+        🌻
+      </div>
+
+
+      <h1>
+        Ale, tengo algo para ti 💛
+      </h1>
+
+
+      <p class="subtitulo">
+        Es algo pequeño, pero quería que lo tuvieras hoy.
+      </p>
+
+
+      <button onclick="abrirSorpresa()">
+        Toca aquí 🌻
+      </button>
+
+
+    </div>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+
+      <!-- DESARROLLADOR -->
+
+      <div class="footer-item">
+
+        <div class="developer-icon">
+          &lt;/&gt;
+        </div>
+
+        <div>
+
+          <div class="footer-title">
+            Creado por
+          </div>
+
+          <div class="footer-value">
+
+            <a href="mailto:juan.castro.socla@gmail.com">
+              juan.castro.socla@gmail.com
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="footer-divider"></div>
+
+
+
+      <!-- FECHA -->
+
+      <div class="footer-item">
+
+        <div class="footer-icon">
+          📅
+        </div>
+
+        <div>
+
+          <!-- FECHA GENERADA CON JAVASCRIPT -->
+
+          <div
+            class="footer-value"
+            id="fechaEvento">
+          </div>
+
+          <div class="footer-title">
+            Día de las flores amarillas 💛
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </footer>
+
 
   </section>
 
 
-  <section class="sorpresa" id="sorpresa">
 
-    <div class="fecha">
-      21 • SEPTIEMBRE
+
+  <!-- =========================
+       SORPRESA
+  ========================== -->
+
+  <section
+    class="sorpresa"
+    id="sorpresa">
+
+
+    <!-- FECHA DINÁMICA -->
+
+    <div
+      class="fecha"
+      id="fechaSorpresa">
     </div>
+
 
     <h2>
       Tus flores amarillas 🌻💛
     </h2>
 
+
+
     <div class="ramo">
-      🌻 🌻 🌻<br>
-      🌻 🌼 🌻 🌼<br>
-      🌼 🌻 🌻 🌻 🌼<br>
+
+      🌻 🌻 🌻
+      <br>
+
+      🌻 🌼 🌻 🌼
+      <br>
+
+      🌼 🌻 🌻 🌻 🌼
+      <br>
+
       🌿 🌿 🌿
+
     </div>
 
+
+
     <div class="mensaje">
+
 
       <p>
         🌻 Para ti, Ale 💛
       </p>
 
+
       <br>
 
+
       <p>
+
         Hoy 21 de septiembre no quería dejar pasar
         la oportunidad de regalarte tus flores amarillas,
         aunque esta vez sean de una manera diferente.
+
       </p>
+
 
       <br>
 
+
       <p>
+
         Espero que tengas un lindo día y que estas
         pequeñas flores te saquen una sonrisa. 🌻✨
+
       </p>
 
+
+
       <div class="firma">
-        Con cariño,<br>
+
+        Con cariño,
+        <br>
+
         Juan Carlos 💛
+
       </div>
 
+
     </div>
+
 
   </section>
 
 
+
+
   <script>
+
+
+    /* =========================
+       FECHA DEL EVENTO
+    ========================== */
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      function () {
+
+        /*
+          Obtenemos automáticamente
+          el año actual.
+        */
+
+        const anioActual =
+          new Date().getFullYear();
+
+
+        /*
+          El 21 de septiembre corresponde
+          al evento.
+
+          El año NO está hardcodeado.
+        */
+
+        const fechaEvento =
+          `21 de septiembre de ${anioActual}`;
+
+
+        /*
+          Mostramos fecha en el footer.
+        */
+
+        document.getElementById(
+          "fechaEvento"
+        ).textContent =
+          fechaEvento;
+
+
+        /*
+          Fecha superior de la sorpresa.
+        */
+
+        document.getElementById(
+          "fechaSorpresa"
+        ).textContent =
+          `21 • SEPTIEMBRE • ${anioActual}`;
+
+      }
+    );
+
+
+
+    /* =========================
+       ABRIR SORPRESA
+    ========================== */
 
     function abrirSorpresa() {
 
-      document.getElementById("inicio").style.display = "none";
+      document.getElementById(
+        "inicio"
+      ).style.display =
+        "none";
 
-      document.getElementById("sorpresa").style.display = "block";
+
+      document.getElementById(
+        "sorpresa"
+      ).style.display =
+        "block";
+
 
       crearPetalos();
 
     }
 
 
+
+    /* =========================
+       ANIMACIÓN FLORES
+    ========================== */
+
     function crearPetalos() {
 
-      for (let i = 0; i < 35; i++) {
 
-        setTimeout(() => {
+      for (
+        let i = 0;
+        i < 40;
+        i++
+      ) {
 
-          const petalo = document.createElement("div");
 
-          petalo.classList.add("petalo");
+        setTimeout(
+          () => {
 
-          const flores = ["🌻", "💛", "🌼"];
 
-          petalo.innerHTML =
-            flores[Math.floor(Math.random() * flores.length)];
+            const petalo =
+              document.createElement(
+                "div"
+              );
 
-          petalo.style.left =
-            Math.random() * 100 + "vw";
 
-          petalo.style.animationDuration =
-            (4 + Math.random() * 5) + "s";
+            petalo.classList.add(
+              "petalo"
+            );
 
-          document.body.appendChild(petalo);
 
-          setTimeout(() => {
-            petalo.remove();
-          }, 9000);
+            const flores = [
+              "🌻",
+              "💛",
+              "🌼"
+            ];
 
-        }, i * 150);
+
+            petalo.innerHTML =
+              flores[
+                Math.floor(
+                  Math.random()
+                  * flores.length
+                )
+              ];
+
+
+            petalo.style.left =
+              Math.random()
+              * 100
+              + "vw";
+
+
+            petalo.style.animationDuration =
+              (
+                4
+                + Math.random()
+                * 5
+              )
+              + "s";
+
+
+            document.body.appendChild(
+              petalo
+            );
+
+
+
+            setTimeout(
+              () => {
+
+                petalo.remove();
+
+              },
+              9000
+            );
+
+
+          },
+          i * 150
+        );
 
       }
 
     }
 
+
   </script>
 
+
 </body>
+
 </html>

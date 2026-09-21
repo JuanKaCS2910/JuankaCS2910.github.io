@@ -26,7 +26,6 @@
 
         body {
             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-
             min-height: 100vh;
 
             background:
@@ -42,7 +41,6 @@
                 );
 
             color: #4d3b00;
-
             overflow-x: hidden;
         }
 
@@ -59,12 +57,8 @@
 
             position: relative;
 
-            padding:
-                30px
-                20px
-                130px;
+            padding: 30px 20px 130px;
         }
-
 
         .contenido-inicio {
             flex: 1;
@@ -79,7 +73,6 @@
 
             animation: aparecer 1.3s ease;
         }
-
 
         .flor-principal {
             font-size: 5rem;
@@ -98,20 +91,18 @@
                 );
         }
 
-
         .inicio h1 {
             font-size: 2.5rem;
-
             margin-bottom: 15px;
         }
 
-
         .subtitulo {
             font-size: 1.15rem;
-
             margin-bottom: 30px;
-
             opacity: 0.85;
+
+            max-width: 650px;
+            line-height: 1.7;
         }
 
 
@@ -122,9 +113,7 @@
         .boton-sorpresa {
             border: none;
 
-            padding:
-                16px
-                32px;
+            padding: 16px 32px;
 
             font-size: 1.1rem;
 
@@ -150,7 +139,6 @@
                 box-shadow 0.3s ease;
         }
 
-
         .boton-sorpresa:hover {
             transform:
                 translateY(-3px)
@@ -161,14 +149,13 @@
                 rgba(150, 110, 0, 0.28);
         }
 
-
         .boton-sorpresa:active {
             transform: scale(0.97);
         }
 
 
         /* ==================================================
-           FOOTER GENERAL
+           FOOTER
         ================================================== */
 
         .footer {
@@ -199,7 +186,6 @@
             color: #554500;
         }
 
-
         .footer-item {
             display: flex;
 
@@ -210,7 +196,6 @@
             text-align: left;
         }
 
-
         .developer-icon {
             font-family:
                 Consolas,
@@ -218,25 +203,20 @@
                 monospace;
 
             font-weight: bold;
-
             font-size: 1.7rem;
         }
-
 
         .footer-icon {
             font-size: 1.7rem;
         }
 
-
         .footer-divider {
             width: 1px;
-
             height: 45px;
 
             background:
                 rgba(100, 75, 0, 0.25);
         }
-
 
         .footer-title {
             font-size: 0.78rem;
@@ -246,19 +226,15 @@
             margin-bottom: 3px;
         }
 
-
         .footer-value {
             font-weight: 600;
         }
 
-
         .footer a,
         .footer-sorpresa a {
             color: #554500;
-
             text-decoration: none;
         }
-
 
         .footer a:hover,
         .footer-sorpresa a:hover {
@@ -275,10 +251,7 @@
 
             min-height: 100vh;
 
-            padding:
-                70px
-                20px
-                45px;
+            padding: 70px 20px 45px;
 
             position: relative;
 
@@ -304,9 +277,7 @@
 
             gap: 8px;
 
-            padding:
-                11px
-                18px;
+            padding: 11px 18px;
 
             border:
                 1px solid
@@ -318,13 +289,11 @@
                 rgba(255, 255, 255, 0.60);
 
             backdrop-filter: blur(10px);
-
             -webkit-backdrop-filter: blur(10px);
 
             color: #4d3b00;
 
             font-size: 0.95rem;
-
             font-weight: 600;
 
             cursor: pointer;
@@ -341,7 +310,6 @@
             z-index: 200;
         }
 
-
         .btn-volver:hover {
             background:
                 rgba(255, 255, 255, 0.90);
@@ -352,7 +320,6 @@
                 0 8px 25px
                 rgba(100, 80, 0, 0.15);
         }
-
 
         .btn-volver:active {
             transform:
@@ -375,10 +342,8 @@
             opacity: 0.75;
         }
 
-
         .sorpresa h2 {
             font-size: 2.2rem;
-
             margin-bottom: 30px;
         }
 
@@ -392,9 +357,7 @@
 
             max-width: 500px;
 
-            margin:
-                20px auto
-                35px;
+            margin: 20px auto 35px;
 
             line-height: 1.2;
 
@@ -416,7 +379,6 @@
                 );
 
             backdrop-filter: blur(10px);
-
             -webkit-backdrop-filter: blur(10px);
 
             max-width: 550px;
@@ -436,17 +398,13 @@
             line-height: 1.8;
         }
 
-
         .mensaje-titulo {
             font-size: 1.2rem;
-
             font-weight: 600;
         }
 
-
         .firma {
             margin-top: 25px;
-
             font-weight: bold;
         }
 
@@ -458,9 +416,7 @@
         .footer-sorpresa {
             width: min(850px, 90%);
 
-            margin:
-                55px auto
-                0;
+            margin: 55px auto 0;
 
             border-top:
                 1px solid
@@ -506,25 +462,19 @@
 
             from {
                 opacity: 0;
-
-                transform:
-                    translateY(20px);
+                transform: translateY(20px);
             }
 
             to {
                 opacity: 1;
-
-                transform:
-                    translateY(0);
+                transform: translateY(0);
             }
         }
-
 
         @keyframes crecer {
 
             0% {
                 transform: scale(0);
-
                 opacity: 0;
             }
 
@@ -534,11 +484,9 @@
 
             100% {
                 transform: scale(1);
-
                 opacity: 1;
             }
         }
-
 
         @keyframes flotar {
 
@@ -555,7 +503,6 @@
                     rotate(2deg);
             }
         }
-
 
         @keyframes caer {
 
@@ -584,24 +531,20 @@
         @media (max-width: 650px) {
 
             .inicio {
-                padding-bottom: 210px;
+                padding-bottom: 220px;
             }
-
 
             .flor-principal {
                 font-size: 4rem;
             }
 
-
             .inicio h1 {
                 font-size: 2rem;
             }
 
-
             .subtitulo {
                 font-size: 1rem;
             }
-
 
             .footer {
                 width: 85%;
@@ -612,7 +555,6 @@
 
                 gap: 12px;
             }
-
 
             .footer-sorpresa {
                 width: 85%;
@@ -626,57 +568,43 @@
                 margin-top: 40px;
             }
 
-
             .footer-divider {
                 width: 100%;
-
                 height: 1px;
             }
 
-
             .btn-volver {
                 top: 15px;
-
                 left: 15px;
 
-                padding:
-                    9px
-                    14px;
+                padding: 9px 14px;
 
                 font-size: 0.85rem;
             }
-
 
             .sorpresa {
                 padding-top: 80px;
             }
 
-
             .sorpresa h2 {
                 font-size: 1.8rem;
             }
 
-
             .ramo {
                 font-size: 3rem;
             }
-
 
             .mensaje {
                 padding: 25px;
 
                 font-size: 1rem;
             }
-
         }
 
     </style>
-
 </head>
 
-
 <body>
-
 
     <!-- ==================================================
          PANTALLA INICIAL
@@ -687,24 +615,21 @@
         id="inicio"
     >
 
-
         <div class="contenido-inicio">
-
 
             <div class="flor-principal">
                 🌻
             </div>
 
-
             <h1>
                 Ale, tengo algo para ti 💛
             </h1>
 
-
             <p class="subtitulo">
-                Es algo pequeño, pero quería que lo tuvieras hoy.
+                Tú sabes que no necesito una fecha especial para regalarte flores. 🌻
+                <br>
+                Es algo pequeño, pero quería que lo tuvieras hoy. 🤍
             </p>
-
 
             <button
                 class="boton-sorpresa"
@@ -714,33 +639,24 @@
                 Toca aquí 🌻
             </button>
 
-
         </div>
 
 
-
-        <!-- ==================================================
-             FOOTER PRIMERA PANTALLA
-        =================================================== -->
+        <!-- FOOTER PRIMERA PANTALLA -->
 
         <footer class="footer">
 
-
             <div class="footer-item">
-
 
                 <div class="developer-icon">
                     &lt;/&gt;
                 </div>
 
-
                 <div>
-
 
                     <div class="footer-title">
                         Creado por
                     </div>
-
 
                     <div class="footer-value">
 
@@ -750,52 +666,38 @@
 
                     </div>
 
-
                 </div>
 
-
             </div>
-
 
 
             <div class="footer-divider"></div>
 
 
-
             <div class="footer-item">
-
 
                 <div class="footer-icon">
                     📅
                 </div>
 
-
                 <div>
-
 
                     <div
                         class="footer-value"
                         id="fechaActual"
-                    >
-                    </div>
-
+                    ></div>
 
                     <div class="footer-title">
                         Día de las flores amarillas 💛
                     </div>
 
-
                 </div>
-
 
             </div>
 
-
         </footer>
 
-
     </section>
-
 
 
     <!-- ==================================================
@@ -806,7 +708,6 @@
         class="sorpresa"
         id="sorpresa"
     >
-
 
         <!-- BOTÓN VOLVER -->
 
@@ -820,21 +721,17 @@
         </button>
 
 
-
         <!-- FECHA -->
 
         <div
             class="fecha"
             id="fechaSorpresa"
-        >
-        </div>
-
+        ></div>
 
 
         <h2>
             Tus flores amarillas 🌻💛
         </h2>
-
 
 
         <!-- RAMO -->
@@ -855,74 +752,57 @@
         </div>
 
 
-
         <!-- MENSAJE -->
 
         <div class="mensaje">
-
 
             <p class="mensaje-titulo">
                 🌻 Para ti, Ale 💛
             </p>
 
-
             <br>
-
 
             <p>
-                Hoy no quería dejar pasar la oportunidad
-                de regalarte tus flores amarillas,
-                aunque esta vez sean de una manera diferente.
+                Quizás esta vez no pude entregártelas personalmente,
+                pero no quería dejar pasar la oportunidad de hacerte llegar
+                tus flores amarillas, aunque fuera de una manera diferente.
             </p>
 
-
             <br>
-
 
             <p>
                 Espero que tengas un lindo día
-                y que estas pequeñas flores
-                te saquen una sonrisa. 🌻✨
+                y que este pequeño detalle
+                te saque una sonrisa. 🌻✨
             </p>
-
-
 
             <div class="firma">
 
                 Con cariño,
                 <br>
 
-                Juan Carlos 💛
+                JuanKa 💛
 
             </div>
-
 
         </div>
 
 
-
-        <!-- ==================================================
-             FOOTER SEGUNDA PANTALLA
-        =================================================== -->
+        <!-- FOOTER SEGUNDA PANTALLA -->
 
         <footer class="footer-sorpresa">
 
-
             <div class="footer-item">
-
 
                 <div class="developer-icon">
                     &lt;/&gt;
                 </div>
 
-
                 <div>
-
 
                     <div class="footer-title">
                         Creado por
                     </div>
-
 
                     <div class="footer-value">
 
@@ -932,52 +812,38 @@
 
                     </div>
 
-
                 </div>
 
-
             </div>
-
 
 
             <div class="footer-divider"></div>
 
 
-
             <div class="footer-item">
-
 
                 <div class="footer-icon">
                     📅
                 </div>
 
-
                 <div>
-
 
                     <div
                         class="footer-value"
                         id="fechaActualSorpresa"
-                    >
-                    </div>
-
+                    ></div>
 
                     <div class="footer-title">
                         Día de las flores amarillas 💛
                     </div>
 
-
                 </div>
-
 
             </div>
 
-
         </footer>
 
-
     </section>
-
 
 
     <script>
@@ -996,20 +862,13 @@
         );
 
 
-
         /* ==================================================
            FECHA DEL SISTEMA
         ================================================== */
 
         function actualizarFecha() {
 
-            /*
-                Fecha actual del dispositivo
-                que está abriendo la página.
-            */
-
-            const fechaSistema =
-                new Date();
+            const fechaSistema = new Date();
 
 
             /*
@@ -1028,7 +887,6 @@
                 );
 
 
-
             /* Primera pantalla */
 
             document.getElementById(
@@ -1037,8 +895,7 @@
                 fechaCompleta;
 
 
-
-            /* Segunda pantalla - footer */
+            /* Segunda pantalla */
 
             document.getElementById(
                 "fechaActualSorpresa"
@@ -1046,12 +903,7 @@
                 fechaCompleta;
 
 
-
-            /*
-                Fecha superior:
-
-                21 • SETIEMBRE • 2026
-            */
+            /* Fecha superior */
 
             const dia =
                 fechaSistema.getDate();
@@ -1072,14 +924,12 @@
                 fechaSistema.getFullYear();
 
 
-
             document.getElementById(
                 "fechaSorpresa"
             ).textContent =
                 `${dia} • ${mes} • ${anio}`;
 
         }
-
 
 
         /* ==================================================
@@ -1099,11 +949,6 @@
                     "sorpresa"
                 );
 
-
-            /*
-                Actualizamos la fecha por si
-                la página quedó abierta.
-            */
 
             actualizarFecha();
 
@@ -1125,7 +970,6 @@
             crearPetalos();
 
         }
-
 
 
         /* ==================================================
@@ -1180,7 +1024,6 @@
         }
 
 
-
         /* ==================================================
            ANIMACIÓN DE FLORES
         ================================================== */
@@ -1200,15 +1043,8 @@
                 i++
             ) {
 
-
                 setTimeout(
                     function () {
-
-
-                        /*
-                            Verificamos que la segunda
-                            pantalla siga visible.
-                        */
 
                         const sorpresa =
                             document.getElementById(
@@ -1224,11 +1060,6 @@
                         }
 
 
-
-                        /*
-                            Creamos la flor.
-                        */
-
                         const petalo =
                             document.createElement(
                                 "div"
@@ -1240,11 +1071,6 @@
                         );
 
 
-
-                        /*
-                            Elemento aleatorio.
-                        */
-
                         petalo.textContent =
                             elementos[
                                 Math.floor(
@@ -1254,21 +1080,11 @@
                             ];
 
 
-
-                        /*
-                            Posición aleatoria.
-                        */
-
                         petalo.style.left =
                             Math.random()
                             * 100
                             + "vw";
 
-
-
-                        /*
-                            Tamaño aleatorio.
-                        */
 
                         petalo.style.fontSize =
                             (
@@ -1280,11 +1096,6 @@
                             + "px";
 
 
-
-                        /*
-                            Velocidad aleatoria.
-                        */
-
                         petalo.style.animationDuration =
                             (
                                 4
@@ -1295,17 +1106,10 @@
                             + "s";
 
 
-
                         document.body.appendChild(
                             petalo
                         );
 
-
-
-                        /*
-                            Eliminamos la flor después
-                            de terminar la animación.
-                        */
 
                         setTimeout(
                             function () {
@@ -1316,7 +1120,6 @@
                             9500
                         );
 
-
                     },
                     i * 150
                 );
@@ -1326,7 +1129,6 @@
         }
 
     </script>
-
 
 </body>
 

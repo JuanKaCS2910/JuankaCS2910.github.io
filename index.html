@@ -1,0 +1,1661 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Juan Carlos Castro Socla | Technical Leader & Software Engineer</title>
+
+    <meta name="description"
+          content="Portfolio profesional de Juan Carlos Castro Socla, Technical Leader y Senior Software Engineer especializado en .NET, C#, Angular, SQL Server, Oracle e integraciones empresariales.">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #08111f;
+            --bg-secondary: #0d1726;
+            --card: rgba(17, 30, 49, 0.85);
+            --card-hover: rgba(22, 40, 64, 0.95);
+            --text: #eaf2ff;
+            --muted: #94a3b8;
+            --primary: #38bdf8;
+            --primary-dark: #0284c7;
+            --border: rgba(148, 163, 184, 0.15);
+            --green: #22c55e;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(56, 189, 248, 0.08), transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(37, 99, 235, 0.08), transparent 30%);
+            z-index: -1;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            background: rgba(8, 17, 31, 0.82);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            color: white !important;
+            letter-spacing: -1px;
+        }
+
+        .navbar-brand span {
+            color: var(--primary);
+        }
+
+        .nav-link {
+            color: #cbd5e1 !important;
+            font-size: .92rem;
+            margin-left: 10px;
+            transition: .25s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary) !important;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 50px;
+            background: rgba(34, 197, 94, 0.08);
+            border: 1px solid rgba(34, 197, 94, 0.25);
+            color: #86efac;
+            font-size: .85rem;
+            margin-bottom: 20px;
+        }
+
+        .online-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 12px var(--green);
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 5.7rem);
+            font-weight: 800;
+            line-height: .98;
+            letter-spacing: -4px;
+            margin-bottom: 20px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-role {
+            font-size: 1.35rem;
+            font-weight: 500;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        .hero-description {
+            color: var(--muted);
+            max-width: 720px;
+            font-size: 1.05rem;
+        }
+
+        .hero-buttons {
+            margin-top: 32px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-main {
+            background: var(--primary);
+            color: #03111d;
+            border: none;
+            padding: 13px 22px;
+            border-radius: 9px;
+            font-weight: 700;
+            transition: .25s;
+        }
+
+        .btn-main:hover {
+            background: #7dd3fc;
+            transform: translateY(-2px);
+            color: #03111d;
+        }
+
+        .btn-outline-custom {
+            border: 1px solid #334155;
+            color: #e2e8f0;
+            padding: 12px 20px;
+            border-radius: 9px;
+            transition: .25s;
+        }
+
+        .btn-outline-custom:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* TERMINAL */
+
+        .terminal {
+            background: rgba(10, 18, 30, .9);
+            border: 1px solid #243247;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 25px 80px rgba(0,0,0,.35);
+        }
+
+        .terminal-header {
+            background: #111c2c;
+            padding: 13px 16px;
+            display: flex;
+            gap: 7px;
+            border-bottom: 1px solid #243247;
+        }
+
+        .terminal-dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: #ef4444; }
+        .dot-yellow { background: #eab308; }
+        .dot-green { background: #22c55e; }
+
+        .terminal-body {
+            padding: 25px;
+            font-family: Consolas, monospace;
+            font-size: .9rem;
+            color: #94a3b8;
+            min-height: 330px;
+        }
+
+        .code-blue { color: #38bdf8; }
+        .code-green { color: #86efac; }
+        .code-purple { color: #c084fc; }
+        .code-white { color: #e2e8f0; }
+
+        /* SECTIONS */
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-tag {
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: .76rem;
+            font-weight: 700;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin: 8px 0 15px;
+        }
+
+        .section-description {
+            color: var(--muted);
+            max-width: 680px;
+            margin-bottom: 50px;
+        }
+
+        /* ABOUT */
+
+        .about-card {
+            height: 100%;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        .about-card i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .about-number {
+            font-size: 2.3rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .about-label {
+            color: var(--muted);
+        }
+
+        /* STACK */
+
+        .tech-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 25px;
+            height: 100%;
+            transition: .3s;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(56, 189, 248, .45);
+            background: var(--card-hover);
+        }
+
+        .tech-card h5 {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .tech-icon {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: rgba(56, 189, 248, .1);
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 18px;
+        }
+
+        .tech-badge {
+            display: inline-block;
+            padding: 6px 10px;
+            background: #111e30;
+            border: 1px solid #26364d;
+            border-radius: 7px;
+            color: #cbd5e1;
+            font-size: .8rem;
+            margin: 3px;
+        }
+
+        /* EXPERIENCE */
+
+        .experience-item {
+            position: relative;
+            padding-left: 45px;
+            padding-bottom: 45px;
+        }
+
+        .experience-item::before {
+            content: "";
+            position: absolute;
+            left: 11px;
+            top: 10px;
+            bottom: -10px;
+            width: 1px;
+            background: #25364c;
+        }
+
+        .experience-item:last-child::before {
+            display: none;
+        }
+
+        .experience-dot {
+            position: absolute;
+            left: 4px;
+            top: 8px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 0 5px rgba(56,189,248,.1);
+        }
+
+        .experience-date {
+            color: var(--primary);
+            font-size: .82rem;
+            font-weight: 700;
+            margin-bottom: 7px;
+        }
+
+        .experience-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 26px;
+        }
+
+        .experience-card h4 {
+            font-weight: 750;
+            margin-bottom: 4px;
+        }
+
+        .company {
+            color: #94a3b8;
+            font-size: .95rem;
+            margin-bottom: 15px;
+        }
+
+        .experience-card ul {
+            color: #aab7c8;
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+
+        /* PROJECTS */
+
+        .project-card {
+            height: 100%;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: .3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(56,189,248,.4);
+        }
+
+        .project-top {
+            height: 170px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(
+                135deg,
+                rgba(14,165,233,.15),
+                rgba(79,70,229,.12)
+            );
+        }
+
+        .project-top i {
+            font-size: 4rem;
+            color: var(--primary);
+        }
+
+        .project-body {
+            padding: 25px;
+        }
+
+        .project-body p {
+            color: var(--muted);
+            font-size: .92rem;
+        }
+
+        /* EDUCATION */
+
+        .education-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 14px;
+            height: 100%;
+        }
+
+        .education-icon {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        /* CONTACT */
+
+        .contact-box {
+            background: linear-gradient(
+                135deg,
+                rgba(56,189,248,.08),
+                rgba(99,102,241,.08)
+            );
+            border: 1px solid rgba(56,189,248,.2);
+            border-radius: 20px;
+            padding: 55px 30px;
+            text-align: center;
+        }
+
+        .contact-box p {
+            color: var(--muted);
+            max-width: 600px;
+            margin: 15px auto 30px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            padding: 11px 17px;
+            color: #e2e8f0;
+            border: 1px solid #334155;
+            border-radius: 9px;
+            transition: .25s;
+        }
+
+        .social-link:hover {
+            color: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 35px 0;
+            color: #64748b;
+            font-size: .85rem;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .footer-created {
+            text-align: center;
+        }
+
+        .footer-code {
+            font-family: Consolas, monospace;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.2;
+            margin-bottom: 4px;
+        }
+
+        .footer-text {
+            font-size: .72rem;
+            color: #64748b;
+        }
+
+        .footer-email {
+            display: block;
+            font-size: .82rem;
+            color: #94a3b8;
+            transition: .25s;
+        }
+
+        .footer-email:hover {
+            color: var(--primary);
+        }
+
+        /* ANIMATION */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: .7s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media(max-width: 991px) {
+
+            .hero {
+                padding: 140px 0 80px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .terminal {
+                margin-top: 50px;
+            }
+        }
+
+        @media(max-width: 576px) {
+
+            section {
+                padding: 75px 0;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero-role {
+                font-size: 1.1rem;
+            }
+
+            .terminal-body {
+                font-size: .78rem;
+                padding: 18px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="#">
+            JC<span>.</span>
+        </a>
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarMenu">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMenu">
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#sobre-mi">Sobre mí</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#stack">Stack</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#experiencia">Experiencia</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#proyectos">Proyectos</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#educacion">Educación</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contacto">Contacto</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+<header class="hero">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-7">
+
+                <div class="hero-badge">
+                    <span class="online-dot"></span>
+                    Disponible para nuevos desafíos profesionales
+                </div>
+
+                <h1>
+                    Juan Carlos<br>
+                    <span class="gradient-text">Castro Socla</span>
+                </h1>
+
+                <div class="hero-role">
+                    Technical Leader · Senior Software Engineer · Full Stack .NET
+                </div>
+
+                <p class="hero-description">
+
+                    Ingeniero de Sistemas con más de 10 años de experiencia
+                    desarrollando soluciones empresariales, liderando equipos
+                    técnicos y construyendo integraciones para plataformas
+                    de alta demanda.
+
+                    Especializado en ecosistema Microsoft, .NET, C#, Angular,
+                    SQL Server, Oracle y arquitectura de APIs.
+
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#experiencia" class="btn-main">
+                        <i class="bi bi-briefcase me-2"></i>
+                        Ver experiencia
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/juansocla2910/"
+                       target="_blank"
+                       class="btn-outline-custom">
+
+                        <i class="bi bi-linkedin me-2"></i>
+                        LinkedIn
+
+                    </a>
+
+                    <a href="https://github.com/JuanKaCS2910"
+                       target="_blank"
+                       class="btn-outline-custom">
+
+                        <i class="bi bi-github me-2"></i>
+                        GitHub
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-5">
+
+                <div class="terminal">
+
+                    <div class="terminal-header">
+
+                        <div class="terminal-dot dot-red"></div>
+                        <div class="terminal-dot dot-yellow"></div>
+                        <div class="terminal-dot dot-green"></div>
+
+                    </div>
+
+                    <div class="terminal-body">
+
+                        <div>
+                            <span class="code-purple">public class</span>
+                            <span class="code-blue"> SoftwareEngineer</span>
+                        </div>
+
+                        <div>{</div>
+
+                        <div class="ms-3 mt-2">
+                            <span class="code-purple">public string</span>
+                            Name =
+                            <span class="code-green">"Juan Carlos Castro"</span>;
+                        </div>
+
+                        <div class="ms-3">
+                            <span class="code-purple">public string</span>
+                            Role =
+                            <span class="code-green">"Technical Leader"</span>;
+                        </div>
+
+                        <div class="ms-3">
+                            <span class="code-purple">public string</span>
+                            Experience =
+                            <span class="code-green">"10+ years"</span>;
+                        </div>
+
+                        <br>
+
+                        <div class="ms-3">
+                            <span class="code-blue">Stack</span> =
+                            <span class="code-white">new[]</span>
+                        </div>
+
+                        <div class="ms-3">{</div>
+
+                        <div class="ms-5 code-green">
+                            ".NET 10", "C#",<br>
+                            "Angular", "SQL Server",<br>
+                            "Oracle", "REST APIs",<br>
+                            "Azure DevOps"
+                        </div>
+
+                        <div class="ms-3">};</div>
+
+                        <br>
+
+                        <div class="ms-3">
+                            <span class="code-purple">public string</span>
+                            Location =
+                            <span class="code-green">"Lima, Perú 🇵🇪"</span>;
+                        </div>
+
+                        <div>}</div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- SOBRE MI -->
+<section id="sobre-mi">
+
+    <div class="container reveal">
+
+        <div class="section-tag">
+            01 · Sobre mí
+        </div>
+
+        <h2 class="section-title">
+            Construyendo soluciones que generan impacto.
+        </h2>
+
+        <p class="section-description">
+
+            Mi experiencia profesional abarca el ciclo completo de desarrollo
+            de software: levantamiento de requerimientos, diseño técnico,
+            arquitectura, desarrollo, integración, despliegue y soporte
+            productivo.
+
+            He trabajado principalmente en soluciones empresariales,
+            plataformas educativas e integraciones entre sistemas.
+
+        </p>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+
+                <div class="about-card">
+
+                    <i class="bi bi-code-slash"></i>
+
+                    <div class="about-number mt-3">
+                        10+
+                    </div>
+
+                    <div class="about-label">
+                        Años desarrollando software
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="about-card">
+
+                    <i class="bi bi-diagram-3"></i>
+
+                    <div class="about-number mt-3">
+                        Full Stack
+                    </div>
+
+                    <div class="about-label">
+                        Backend · Frontend · Integraciones
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="about-card">
+
+                    <i class="bi bi-people"></i>
+
+                    <div class="about-number mt-3">
+                        Tech Lead
+                    </div>
+
+                    <div class="about-label">
+                        Liderazgo y diseño técnico
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- STACK -->
+<section id="stack" style="background:#0a1422">
+
+    <div class="container reveal">
+
+        <div class="section-tag">
+            02 · Stack tecnológico
+        </div>
+
+        <h2 class="section-title">
+            Tecnologías con las que trabajo.
+        </h2>
+
+        <p class="section-description">
+            Experiencia principalmente en el ecosistema Microsoft,
+            desarrollo web empresarial, APIs e integración de sistemas.
+        </p>
+
+        <div class="row g-4">
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="tech-card">
+
+                    <div class="tech-icon">
+                        <i class="bi bi-server"></i>
+                    </div>
+
+                    <h5>Backend</h5>
+
+                    <span class="tech-badge">C#</span>
+                    <span class="tech-badge">.NET 10</span>
+                    <span class="tech-badge">.NET 8</span>
+                    <span class="tech-badge">.NET 6</span>
+                    <span class="tech-badge">ASP.NET Core</span>
+                    <span class="tech-badge">MVC</span>
+                    <span class="tech-badge">REST API</span>
+                    <span class="tech-badge">Dapper</span>
+                    <span class="tech-badge">Entity Framework</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="tech-card">
+
+                    <div class="tech-icon">
+                        <i class="bi bi-window"></i>
+                    </div>
+
+                    <h5>Frontend</h5>
+
+                    <span class="tech-badge">Angular</span>
+                    <span class="tech-badge">TypeScript</span>
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">HTML5</span>
+                    <span class="tech-badge">CSS3</span>
+                    <span class="tech-badge">Bootstrap</span>
+                    <span class="tech-badge">Kendo UI</span>
+                    <span class="tech-badge">Telerik</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="tech-card">
+
+                    <div class="tech-icon">
+                        <i class="bi bi-database"></i>
+                    </div>
+
+                    <h5>Base de datos</h5>
+
+                    <span class="tech-badge">SQL Server</span>
+                    <span class="tech-badge">Oracle</span>
+                    <span class="tech-badge">PL/SQL</span>
+                    <span class="tech-badge">T-SQL</span>
+                    <span class="tech-badge">LINQ</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="tech-card">
+
+                    <div class="tech-icon">
+                        <i class="bi bi-cloud"></i>
+                    </div>
+
+                    <h5>DevOps & Cloud</h5>
+
+                    <span class="tech-badge">Azure DevOps</span>
+                    <span class="tech-badge">Git</span>
+                    <span class="tech-badge">GitHub</span>
+                    <span class="tech-badge">AWS</span>
+                    <span class="tech-badge">IIS</span>
+                    <span class="tech-badge">CI/CD</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EXPERIENCIA -->
+<section id="experiencia">
+
+    <div class="container reveal">
+
+        <div class="section-tag">
+            03 · Experiencia
+        </div>
+
+        <h2 class="section-title">
+            Trayectoria profesional.
+        </h2>
+
+        <p class="section-description">
+            Más de una década participando en desarrollo,
+            mantenimiento, arquitectura e integración
+            de soluciones empresariales.
+        </p>
+
+
+        <div class="experience-item">
+
+            <div class="experience-dot"></div>
+
+            <div class="experience-date">
+                MAY 2023 — ACTUALIDAD
+            </div>
+
+            <div class="experience-card">
+
+                <h4>
+                    Experto en Innovación y Optimización
+                </h4>
+
+                <div class="company">
+                    Laureate Perú
+                </div>
+
+                <ul>
+
+                    <li>
+                        Liderazgo técnico de soluciones e integraciones
+                        para plataformas empresariales y educativas.
+                    </li>
+
+                    <li>
+                        Elaboración de diseños y documentación técnica
+                        junto con arquitectura y Product Owners.
+                    </li>
+
+                    <li>
+                        Desarrollo e integración de servicios utilizando
+                        .NET, C#, Oracle, SQL Server y APIs REST.
+                    </li>
+
+                    <li>
+                        Coordinación técnica con equipos de desarrollo,
+                        infraestructura, arquitectura y proveedores.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="experience-item">
+
+            <div class="experience-dot"></div>
+
+            <div class="experience-date">
+                OCT 2020 — MAR 2023
+            </div>
+
+            <div class="experience-card">
+
+                <h4>
+                    Analista de Mejoras de Servicios de Procesos
+                </h4>
+
+                <div class="company">
+                    Universidad Peruana de Ciencias Aplicadas — UPC
+                </div>
+
+                <ul>
+
+                    <li>
+                        Desarrollo y mejora de soluciones internas.
+                    </li>
+
+                    <li>
+                        Elaboración de documentos técnicos
+                        y análisis de requerimientos.
+                    </li>
+
+                    <li>
+                        Coordinación con arquitectura y equipos técnicos.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="experience-item">
+
+            <div class="experience-dot"></div>
+
+            <div class="experience-date">
+                NOV 2019 — NOV 2022
+            </div>
+
+            <div class="experience-card">
+
+                <h4>
+                    Jefe de Desarrollo
+                </h4>
+
+                <div class="company">
+                    Grupo Imasoft
+                </div>
+
+                <ul>
+
+                    <li>
+                        Desarrollo de módulos para plataforma
+                        empresarial de Recursos Humanos.
+                    </li>
+
+                    <li>
+                        Creación del módulo de seguridad
+                        y administración de accesos.
+                    </li>
+
+                    <li>
+                        Diseño y desarrollo de soluciones personalizadas.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="experience-item">
+
+            <div class="experience-dot"></div>
+
+            <div class="experience-date">
+                OCT 2016 — OCT 2020
+            </div>
+
+            <div class="experience-card">
+
+                <h4>
+                    Analista de Soporte de Aplicaciones
+                </h4>
+
+                <div class="company">
+                    Universidad Peruana de Ciencias Aplicadas — UPC
+                </div>
+
+                <ul>
+
+                    <li>
+                        Análisis y solución de incidencias
+                        en aplicaciones empresariales.
+                    </li>
+
+                    <li>
+                        Mantenimiento y evolución de sistemas existentes.
+                    </li>
+
+                    <li>
+                        Desarrollo e implementación del módulo
+                        de Inglés para estudiantes de pregrado y posgrado.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="experience-item">
+
+            <div class="experience-dot"></div>
+
+            <div class="experience-date">
+                OCT 2015 — OCT 2016
+            </div>
+
+            <div class="experience-card">
+
+                <h4>
+                    Analista Desarrollador
+                </h4>
+
+                <div class="company">
+                    GAF Computer & Systems S.A.
+                </div>
+
+                <ul>
+
+                    <li>
+                        Desarrollo y mantenimiento
+                        de aplicaciones empresariales.
+                    </li>
+
+                    <li>
+                        Análisis de requerimientos,
+                        diseño y programación.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="experience-item">
+
+            <div class="experience-dot"></div>
+
+            <div class="experience-date">
+                AGO 2011 — OCT 2013
+            </div>
+
+            <div class="experience-card">
+
+                <h4>
+                    Desarrollador de Software
+                </h4>
+
+                <div class="company">
+                    Ofisis · Grupo Softland
+                </div>
+
+                <ul>
+
+                    <li>
+                        Desarrollo de soluciones empresariales ERP.
+                    </li>
+
+                    <li>
+                        Experiencia en módulos de aprobaciones,
+                        planillas y Recursos Humanos.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROYECTOS -->
+<section id="proyectos" style="background:#0a1422">
+
+    <div class="container reveal">
+
+        <div class="section-tag">
+            04 · Proyectos
+        </div>
+
+        <h2 class="section-title">
+            Proyectos destacados.
+        </h2>
+
+        <p class="section-description">
+            Algunas de las soluciones e integraciones
+            en las que he participado.
+        </p>
+
+
+        <div class="row g-4">
+
+
+            <!-- WETALK -->
+            <div class="col-lg-4">
+
+                <div class="project-card">
+
+                    <div class="project-top">
+                        <i class="bi bi-shield-lock"></i>
+                    </div>
+
+                    <div class="project-body">
+
+                        <h4>
+                            WeTalk · MFA
+                        </h4>
+
+                        <p>
+                            Integración de autenticación multifactor
+                            para la plataforma de Idiomas mediante
+                            SAML y SecureAuth.
+                        </p>
+
+                        <span class="tech-badge">.NET</span>
+                        <span class="tech-badge">SAML</span>
+                        <span class="tech-badge">SecureAuth</span>
+                        <span class="tech-badge">MFA</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ORQUESTADOR -->
+            <div class="col-lg-4">
+
+                <div class="project-card">
+
+                    <div class="project-top">
+                        <i class="bi bi-arrow-repeat"></i>
+                    </div>
+
+                    <div class="project-body">
+
+                        <h4>
+                            Orquestador
+                        </h4>
+
+                        <p>
+                            Procesos de integración académica
+                            entre diferentes plataformas,
+                            servicios y sistemas institucionales.
+                        </p>
+
+                        <span class="tech-badge">.NET</span>
+                        <span class="tech-badge">Oracle</span>
+                        <span class="tech-badge">Banner</span>
+                        <span class="tech-badge">REST API</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BLACKBOARD -->
+            <div class="col-lg-4">
+
+                <div class="project-card">
+
+                    <div class="project-top">
+                        <i class="bi bi-mortarboard"></i>
+                    </div>
+
+                    <div class="project-body">
+
+                        <h4>
+                            Integraciones Académicas
+                        </h4>
+
+                        <p>
+                            Integraciones entre plataformas educativas,
+                            bases de datos y servicios para automatizar
+                            procesos académicos.
+                        </p>
+
+                        <span class="tech-badge">Blackboard</span>
+                        <span class="tech-badge">AWS</span>
+                        <span class="tech-badge">ETL</span>
+                        <span class="tech-badge">SQL</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EDUCACIÓN -->
+<section id="educacion">
+
+    <div class="container reveal">
+
+        <div class="section-tag">
+            05 · Educación
+        </div>
+
+        <h2 class="section-title">
+            Formación académica.
+        </h2>
+
+        <div class="row g-4 mt-4">
+
+
+            <div class="col-lg-4">
+
+                <div class="education-card">
+
+                    <div class="education-icon">
+                        <i class="bi bi-mortarboard"></i>
+                    </div>
+
+                    <h5>
+                        Maestría en Transformación Digital en Negocios
+                    </h5>
+
+                    <p class="text-secondary mb-1">
+                        Universidad Peruana de Ciencias Aplicadas
+                    </p>
+
+                    <small class="text-secondary">
+                        2020 — 2022
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-4">
+
+                <div class="education-card">
+
+                    <div class="education-icon">
+                        <i class="bi bi-building"></i>
+                    </div>
+
+                    <h5>
+                        Ingeniería de Sistemas
+                    </h5>
+
+                    <p class="text-secondary mb-1">
+                        Universidad Nacional Federico Villarreal
+                    </p>
+
+                    <small class="text-secondary">
+                        2007 — 2011
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-4">
+
+                <div class="education-card">
+
+                    <div class="education-icon">
+                        <i class="bi bi-translate"></i>
+                    </div>
+
+                    <h5>
+                        Idiomas
+                    </h5>
+
+                    <p class="text-secondary mb-1">
+                        Español · Nativo
+                    </p>
+
+                    <p class="text-secondary mb-1">
+                        Inglés · Intermedio
+                    </p>
+
+                    <p class="text-secondary">
+                        Portugués · Básico
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACTO -->
+<section id="contacto">
+
+    <div class="container reveal">
+
+        <div class="contact-box">
+
+            <div class="section-tag">
+                06 · Contacto
+            </div>
+
+            <h2 class="section-title">
+                ¿Hablamos?
+            </h2>
+
+            <p>
+                Si quieres conversar sobre desarrollo de software,
+                arquitectura, integraciones o nuevas oportunidades
+                profesionales, puedes contactarme.
+            </p>
+
+            <div class="social-links">
+
+                <a href="mailto:juan.castro.socla@gmail.com"
+                   class="social-link">
+
+                    <i class="bi bi-envelope me-2"></i>
+                    Email
+
+                </a>
+
+                <a href="https://www.linkedin.com/in/juansocla2910/"
+                   target="_blank"
+                   class="social-link">
+
+                    <i class="bi bi-linkedin me-2"></i>
+                    LinkedIn
+
+                </a>
+
+                <a href="https://github.com/JuanKaCS2910"
+                   target="_blank"
+                   class="social-link">
+
+                    <i class="bi bi-github me-2"></i>
+                    GitHub
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="container">
+
+        <div class="footer-content">
+
+            <div>
+                © <span id="year"></span>
+                Juan Carlos Castro Socla
+            </div>
+
+
+            <div class="footer-created">
+
+                <div class="footer-code">
+                    &lt;/&gt;
+                </div>
+
+                <div class="footer-text">
+                    Creado por
+                </div>
+
+                <a href="mailto:juan.castro.socla@gmail.com"
+                   class="footer-email">
+
+                    juan.castro.socla@gmail.com
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- BOOTSTRAP -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+
+    /* AÑO AUTOMÁTICO */
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+
+    /* ANIMACIÓN AL HACER SCROLL */
+
+    const elements =
+        document.querySelectorAll(".reveal");
+
+    const observer =
+        new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
+                }
+
+            });
+
+        }, {
+            threshold: 0.12
+        });
+
+
+    elements.forEach(element => {
+        observer.observe(element);
+    });
+
+
+    /* CERRAR NAVBAR EN CELULAR */
+
+    document.querySelectorAll(".navbar .nav-link")
+        .forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                const navbar =
+                    document.querySelector(".navbar-collapse");
+
+                if (navbar.classList.contains("show")) {
+
+                    bootstrap.Collapse
+                        .getOrCreateInstance(navbar)
+                        .hide();
+
+                }
+
+            });
+
+        });
+
+</script>
+
+</body>
+</html>
+```

@@ -1,695 +1,2360 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <title>Para Ale 🌻💛</title>
 
+
     <style>
+
+        /* ==================================================
+           GENERAL
+        ================================================== */
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
-        html, body {
+
+        html,
+        body {
             min-height: 100%;
         }
 
+
         body {
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+            font-family:
+                "Segoe UI",
+                Tahoma,
+                Geneva,
+                Verdana,
+                sans-serif;
+
             min-height: 100vh;
-            background:
-                radial-gradient(circle at center, rgba(255,255,255,.45), transparent 50%),
-                linear-gradient(135deg, #fff8c6, #ffe66d);
-            color: #4d3b00;
+
+            color: #4d3500;
+
             overflow-x: hidden;
+
+            background:
+
+                radial-gradient(
+                    circle at 50% 28%,
+                    rgba(255, 255, 255, 0.78),
+                    transparent 34%
+                ),
+
+                linear-gradient(
+                    145deg,
+                    #fffbd9 0%,
+                    #fff1a8 48%,
+                    #ffe16c 100%
+                );
         }
 
-        /* PRIMERA PANTALLA */
+
+        /* ==================================================
+           DECORACIÓN DE FONDO
+        ================================================== */
+
+        body::before,
+        body::after {
+
+            content: "🌻";
+
+            position: fixed;
+
+            z-index: -1;
+
+            opacity: 0.10;
+
+            font-size: 15rem;
+
+            pointer-events: none;
+        }
+
+
+        body::before {
+
+            top: -70px;
+            left: -80px;
+
+            transform: rotate(-20deg);
+        }
+
+
+        body::after {
+
+            right: -85px;
+            bottom: -70px;
+
+            transform: rotate(18deg);
+        }
+
+
+
+        /* ==================================================
+           PRIMERA PANTALLA
+        ================================================== */
+
         .inicio {
+
             min-height: 100vh;
+
             display: flex;
             flex-direction: column;
-            position: relative;
-            padding: 30px 20px 145px;
+
+            padding:
+                34px
+                20px
+                28px;
         }
+
 
         .contenido-inicio {
-            flex: 1;
+
+            width: min(760px, 100%);
+
+            margin: auto;
+
+            text-align: center;
+
             display: flex;
             flex-direction: column;
-            justify-content: center;
+
             align-items: center;
-            text-align: center;
-            animation: aparecer 1.3s ease;
         }
+
+
+
+        /* ==================================================
+           GIRASOL PRINCIPAL
+        ================================================== */
 
         .flor-principal {
-            font-size: 4.5rem;
-            margin-bottom: 10px;
-            animation: flotar 3s ease-in-out infinite;
-            filter: drop-shadow(0 8px 10px rgba(120,90,0,.15));
+
+            font-size: 4.7rem;
+
+            animation:
+                flotar
+                3s
+                ease-in-out
+                infinite;
+
+            filter:
+                drop-shadow(
+                    0 7px 10px
+                    rgba(140, 100, 0, 0.15)
+                );
         }
+
+
+
+        /* ==================================================
+           TÍTULO
+        ================================================== */
 
         .inicio h1 {
-            font-size: 2.5rem;
-            margin-bottom: 18px;
+
+            font-size:
+                clamp(
+                    2rem,
+                    5vw,
+                    3.25rem
+                );
+
+            margin:
+                8px
+                0
+                22px;
+
+            color: #4b2d00;
+
+            line-height: 1.12;
         }
 
-        /* FOTO DE ARES */
-        .foto-ares {
-            width: 135px;
-            height: 135px;
-            margin: 0 auto 8px;
-            padding: 4px;
-            border-radius: 50%;
-            background: rgba(255,255,255,.82);
-            box-shadow: 0 10px 30px rgba(100,75,0,.18);
-            animation: aparecerFoto 1.3s ease;
+
+
+        /* ==================================================
+           CARRUSEL DE ARES
+        ================================================== */
+
+        .carrusel-ares {
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            gap: 20px;
+
+            width: 100%;
+
+            margin-bottom: 12px;
         }
+
+
+        /* CONTENEDOR FOTO */
+
+        .foto-ares {
+
+            width: 230px;
+            height: 230px;
+
+            flex-shrink: 0;
+
+            padding: 6px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.92
+                );
+
+            box-shadow:
+
+                0 14px 38px
+                rgba(116, 82, 0, 0.22),
+
+                0 0 0 3px
+                rgba(240, 183, 0, 0.22);
+
+            overflow: hidden;
+
+            animation:
+                aparecerFoto
+                1.1s
+                ease;
+        }
+
+
+        /* FOTO */
 
         .foto-ares img {
+
             width: 100%;
             height: 100%;
+
             display: block;
+
             object-fit: cover;
-            object-position: 38% center;
+
+            object-position: center;
+
             border-radius: 50%;
+
+            transition:
+                opacity 0.35s ease,
+                transform 0.35s ease;
         }
+
+
+
+        /* ==================================================
+           FLECHAS DEL CARRUSEL
+        ================================================== */
+
+        .carrusel-btn {
+
+            width: 46px;
+            height: 46px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            border:
+
+                1px solid
+                rgba(
+                    126,
+                    90,
+                    0,
+                    0.15
+                );
+
+            border-radius: 50%;
+
+            background:
+
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.72
+                );
+
+            color: #805b00;
+
+            font-size: 2rem;
+
+            line-height: 1;
+
+            cursor: pointer;
+
+            box-shadow:
+
+                0 6px 18px
+                rgba(
+                    100,
+                    75,
+                    0,
+                    0.12
+                );
+
+            transition:
+
+                transform 0.25s ease,
+                background 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+
+        .carrusel-btn:hover {
+
+            transform: scale(1.10);
+
+            background:
+
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.95
+                );
+
+            box-shadow:
+
+                0 8px 22px
+                rgba(
+                    100,
+                    75,
+                    0,
+                    0.17
+                );
+        }
+
+
+        .carrusel-btn:active {
+
+            transform: scale(0.95);
+        }
+
+
+
+        /* ==================================================
+           INDICADORES
+        ================================================== */
+
+        .indicadores {
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            gap: 8px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .punto {
+
+            width: 9px;
+            height: 9px;
+
+            padding: 0;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background:
+
+                rgba(
+                    128,
+                    91,
+                    0,
+                    0.25
+                );
+
+            cursor: pointer;
+
+            transition:
+
+                width 0.3s ease,
+                background 0.3s ease,
+                transform 0.3s ease;
+        }
+
+
+        .punto:hover {
+
+            transform: scale(1.20);
+        }
+
+
+        .punto.activo {
+
+            width: 24px;
+
+            border-radius: 10px;
+
+            background: #e8a600;
+        }
+
+
+
+        /* ==================================================
+           TEXTO ARES
+        ================================================== */
 
         .foto-texto {
-            margin-bottom: 16px;
-            font-size: .86rem;
-            font-weight: 500;
-            color: #6b5200;
-            opacity: .72;
+
+            font-size: 0.95rem;
+
+            font-weight: 650;
+
+            color: #805b00;
+
+            margin:
+
+                4px
+                0
+                22px;
         }
+
+
+
+        /* ==================================================
+           TEXTO PRINCIPAL
+        ================================================== */
 
         .subtitulo {
-            max-width: 650px;
-            margin-bottom: 15px;
-            font-size: 1.15rem;
-            line-height: 1.7;
-            opacity: .85;
+
+            font-size: 1.12rem;
+
+            line-height: 1.65;
+
+            max-width: 680px;
+
+            margin-bottom: 18px;
+
+            color: #4d3b00;
         }
+
+
+
+        /* ==================================================
+           SEPARADOR
+        ================================================== */
+
+        .separador {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin:
+
+                2px
+                0
+                18px;
+
+            color: #e4ae1b;
+        }
+
+
+        .separador::before,
+        .separador::after {
+
+            content: "";
+
+            width: 95px;
+
+            height: 1px;
+
+            background: #e4ae1b;
+        }
+
+
+
+        /* ==================================================
+           TEXTO ESPECIAL
+        ================================================== */
 
         .detalle-especial {
-            max-width: 650px;
-            margin-bottom: 25px;
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: #6b5200;
-            line-height: 1.6;
-            letter-spacing: .2px;
+
+            font-size: 1.2rem;
+
+            font-weight: 700;
+
+            line-height: 1.45;
+
+            max-width: 620px;
+
+            color: #7a5300;
+
+            margin-bottom: 24px;
         }
+
+
+
+        /* ==================================================
+           BOTÓN PRINCIPAL
+        ================================================== */
 
         .boton-sorpresa {
-            border: none;
-            padding: 16px 32px;
-            font-size: 1.1rem;
+
+            border:
+
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.8
+                );
+
+            padding:
+
+                16px
+                42px;
+
             border-radius: 40px;
-            background: linear-gradient(135deg, #f5b700, #ffbf00);
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #f4b400,
+                    #ffc400
+                );
+
             color: white;
+
+            font-size: 1.15rem;
+
+            font-weight: 700;
+
             cursor: pointer;
-            box-shadow: 0 10px 25px rgba(150,110,0,.22);
-            transition: transform .3s ease, box-shadow .3s ease;
+
+            box-shadow:
+
+                0 12px 30px
+                rgba(
+                    159,
+                    112,
+                    0,
+                    0.25
+                );
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
         }
+
 
         .boton-sorpresa:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 15px 30px rgba(150,110,0,.28);
+
+            transform:
+                translateY(-3px)
+                scale(1.03);
+
+            box-shadow:
+
+                0 16px 34px
+                rgba(
+                    159,
+                    112,
+                    0,
+                    0.30
+                );
         }
+
 
         .boton-sorpresa:active {
-            transform: scale(.97);
+
+            transform: scale(0.97);
         }
 
-        /* FOOTERS */
-        .footer {
-            position: absolute;
-            bottom: 25px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: min(850px, 90%);
-            border-top: 1px solid rgba(100,75,0,.20);
-            padding-top: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 35px;
-            font-size: .88rem;
-            color: #554500;
-        }
 
+
+        /* ==================================================
+           FOOTER
+        ================================================== */
+
+        .footer,
         .footer-sorpresa {
-            width: min(850px, 90%);
-            margin: 55px auto 0;
-            border-top: 1px solid rgba(100,75,0,.20);
+
+            width:
+                min(
+                    850px,
+                    92%
+                );
+
+            margin:
+                52px
+                auto
+                0;
+
+            border-top:
+
+                1px solid
+                rgba(
+                    100,
+                    75,
+                    0,
+                    0.22
+                );
+
             padding-top: 20px;
+
             display: flex;
+
             justify-content: center;
             align-items: center;
+
             gap: 35px;
-            font-size: .88rem;
+
+            font-size: 0.88rem;
+
             color: #554500;
         }
+
 
         .footer-item {
+
             display: flex;
+
             align-items: center;
+
             gap: 12px;
+
             text-align: left;
         }
 
+
         .developer-icon {
-            font-family: Consolas, "Courier New", monospace;
+
+            font-family:
+                Consolas,
+                "Courier New",
+                monospace;
+
             font-weight: bold;
+
             font-size: 1.7rem;
         }
+
 
         .footer-icon {
+
             font-size: 1.7rem;
         }
 
+
         .footer-divider {
+
             width: 1px;
+
             height: 45px;
-            background: rgba(100,75,0,.25);
+
+            background:
+
+                rgba(
+                    100,
+                    75,
+                    0,
+                    0.25
+                );
         }
 
+
         .footer-title {
-            font-size: .78rem;
-            opacity: .70;
+
+            font-size: 0.78rem;
+
+            opacity: 0.70;
+
             margin-bottom: 3px;
         }
 
+
         .footer-value {
+
             font-weight: 600;
         }
+
 
         .footer a,
         .footer-sorpresa a {
+
             color: #554500;
+
             text-decoration: none;
         }
 
+
         .footer a:hover,
         .footer-sorpresa a:hover {
+
             text-decoration: underline;
         }
 
-        /* SEGUNDA PANTALLA */
+
+
+        /* ==================================================
+           SEGUNDA PANTALLA
+        ================================================== */
+
         .sorpresa {
+
             display: none;
+
             min-height: 100vh;
-            padding: 70px 20px 45px;
-            position: relative;
+
+            padding:
+
+                75px
+                20px
+                45px;
+
             text-align: center;
-            animation: aparecer 1.3s ease;
         }
+
+
+
+        /* ==================================================
+           BOTÓN VOLVER
+        ================================================== */
 
         .btn-volver {
+
             position: fixed;
-            top: 25px;
-            left: 30px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 11px 18px;
-            border: 1px solid rgba(77,59,0,.15);
-            border-radius: 30px;
-            background: rgba(255,255,255,.60);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            color: #4d3b00;
-            font-size: .95rem;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 6px 20px rgba(100,80,0,.10);
-            transition: transform .3s ease, background .3s ease, box-shadow .3s ease;
+
+            top: 22px;
+            left: 24px;
+
             z-index: 200;
+
+            border:
+
+                1px solid
+                rgba(
+                    77,
+                    59,
+                    0,
+                    0.14
+                );
+
+            border-radius: 30px;
+
+            padding:
+
+                10px
+                17px;
+
+            background:
+
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.72
+                );
+
+            backdrop-filter: blur(10px);
+
+            -webkit-backdrop-filter: blur(10px);
+
+            color: #4d3b00;
+
+            font-weight: 650;
+
+            cursor: pointer;
+
+            box-shadow:
+
+                0 6px 20px
+                rgba(
+                    100,
+                    80,
+                    0,
+                    0.10
+                );
         }
 
-        .btn-volver:hover {
-            background: rgba(255,255,255,.90);
-            transform: translateX(-4px);
-            box-shadow: 0 8px 25px rgba(100,80,0,.15);
-        }
+
+
+        /* ==================================================
+           FECHA
+        ================================================== */
 
         .fecha {
+
             font-size: 1rem;
+
             letter-spacing: 3px;
-            margin-bottom: 15px;
-            opacity: .75;
+
+            margin-bottom: 14px;
+
+            opacity: 0.72;
         }
+
+
+
+        /* ==================================================
+           TÍTULO SEGUNDA PANTALLA
+        ================================================== */
 
         .sorpresa h2 {
-            font-size: 2.2rem;
-            margin-bottom: 30px;
+
+            font-size:
+
+                clamp(
+                    1.9rem,
+                    5vw,
+                    2.5rem
+                );
+
+            margin-bottom: 26px;
         }
+
+
+
+        /* ==================================================
+           RAMO
+        ================================================== */
 
         .ramo {
+
             font-size: 4rem;
-            max-width: 500px;
-            margin: 20px auto 35px;
+
             line-height: 1.2;
-            animation: crecer 1.8s ease;
+
+            margin:
+
+                15px
+                auto
+                30px;
+
+            animation:
+                crecer
+                1.5s
+                ease;
         }
 
+
+
+        /* ==================================================
+           MENSAJE
+        ================================================== */
+
         .mensaje {
-            background: rgba(255,255,255,.72);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            max-width: 550px;
+
+            max-width: 560px;
+
             margin: auto;
-            padding: 35px;
+
+            padding: 34px;
+
+            background:
+
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.72
+                );
+
+            backdrop-filter: blur(10px);
+
+            -webkit-backdrop-filter: blur(10px);
+
             border-radius: 25px;
-            box-shadow: 0 15px 40px rgba(100,80,0,.12);
-            font-size: 1.1rem;
+
+            box-shadow:
+
+                0 15px 40px
+                rgba(
+                    100,
+                    80,
+                    0,
+                    0.12
+                );
+
+            font-size: 1.08rem;
+
             line-height: 1.8;
         }
 
+
         .mensaje-titulo {
+
             font-size: 1.2rem;
-            font-weight: 600;
+
+            font-weight: 700;
         }
+
 
         .firma {
-            margin-top: 25px;
-            font-weight: bold;
+
+            margin-top: 24px;
+
+            font-weight: 700;
         }
+
+
+
+        /* ==================================================
+           FLORES CAYENDO
+        ================================================== */
 
         .petalo {
+
             position: fixed;
+
             top: -50px;
+
             z-index: 100;
+
             pointer-events: none;
-            animation: caer linear forwards;
+
+            animation:
+                caer
+                linear
+                forwards;
         }
 
-        @keyframes aparecer {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
 
-        @keyframes aparecerFoto {
-            from { opacity: 0; transform: scale(.80) translateY(10px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
-        }
 
-        @keyframes crecer {
-            0% { transform: scale(0); opacity: 0; }
-            70% { transform: scale(1.15); }
-            100% { transform: scale(1); opacity: 1; }
-        }
+        /* ==================================================
+           ANIMACIONES
+        ================================================== */
 
         @keyframes flotar {
-            0%, 100% { transform: translateY(0) rotate(-2deg); }
-            50% { transform: translateY(-10px) rotate(2deg); }
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0)
+                    rotate(-2deg);
+            }
+
+
+            50% {
+
+                transform:
+                    translateY(-9px)
+                    rotate(2deg);
+            }
         }
+
+
+        @keyframes aparecerFoto {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    scale(0.82)
+                    translateY(10px);
+            }
+
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    scale(1)
+                    translateY(0);
+            }
+        }
+
+
+        @keyframes crecer {
+
+            0% {
+
+                transform: scale(0);
+
+                opacity: 0;
+            }
+
+
+            70% {
+
+                transform: scale(1.12);
+            }
+
+
+            100% {
+
+                transform: scale(1);
+
+                opacity: 1;
+            }
+        }
+
 
         @keyframes caer {
-            from { transform: translateY(-50px) rotate(0deg); opacity: 1; }
-            to { transform: translateY(110vh) rotate(720deg); opacity: .7; }
+
+            from {
+
+                transform:
+                    translateY(-50px)
+                    rotate(0deg);
+
+                opacity: 1;
+            }
+
+
+            to {
+
+                transform:
+                    translateY(110vh)
+                    rotate(720deg);
+
+                opacity: 0.7;
+            }
         }
 
+
+
+        /* ==================================================
+           RESPONSIVE
+        ================================================== */
+
         @media (max-width: 650px) {
+
+
             .inicio {
-                padding: 25px 20px 235px;
+
+                padding:
+
+                    22px
+                    14px
+                    25px;
             }
 
-            .contenido-inicio {
-                justify-content: flex-start;
-                padding-top: 15px;
-            }
 
             .flor-principal {
-                font-size: 3.5rem;
-                margin-bottom: 5px;
+
+                font-size: 3.6rem;
             }
+
 
             .inicio h1 {
-                font-size: 1.8rem;
-                margin-bottom: 14px;
+
+                font-size: 2rem;
+
+                margin-bottom: 18px;
             }
+
+
+            /* CARRUSEL */
+
+            .carrusel-ares {
+
+                gap: 9px;
+            }
+
 
             .foto-ares {
-                width: 110px;
-                height: 110px;
+
+                width: 185px;
+                height: 185px;
+
+                padding: 5px;
             }
+
+
+            .carrusel-btn {
+
+                width: 38px;
+                height: 38px;
+
+                font-size: 1.7rem;
+            }
+
 
             .foto-texto {
-                margin-bottom: 12px;
+
+                font-size: 0.9rem;
+
+                margin-bottom: 18px;
             }
+
 
             .subtitulo {
-                font-size: .98rem;
-                margin-bottom: 12px;
+
+                font-size: 1rem;
+
+                margin-bottom: 15px;
             }
 
+
             .detalle-especial {
-                font-size: 1rem;
+
+                font-size: 1.05rem;
+
                 margin-bottom: 20px;
             }
 
-            .footer,
-            .footer-sorpresa {
-                width: 85%;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 12px;
+
+            .separador::before,
+            .separador::after {
+
+                width: 65px;
             }
 
+
+            /* FOOTER */
+
+            .footer,
+            .footer-sorpresa {
+
+                width: 88%;
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 12px;
+
+                margin-top: 38px;
+            }
+
+
             .footer-divider {
+
                 width: 100%;
+
                 height: 1px;
             }
 
-            .footer-sorpresa {
-                margin-top: 40px;
-            }
 
-            .btn-volver {
-                top: 15px;
-                left: 15px;
-                padding: 9px 14px;
-                font-size: .85rem;
-            }
+            /* SEGUNDA PANTALLA */
 
             .sorpresa {
-                padding-top: 80px;
+
+                padding-top: 78px;
             }
 
-            .sorpresa h2 {
-                font-size: 1.8rem;
-            }
 
             .ramo {
+
                 font-size: 3rem;
             }
 
+
             .mensaje {
+
                 padding: 25px;
+
                 font-size: 1rem;
             }
+
+
+            .btn-volver {
+
+                top: 14px;
+                left: 14px;
+            }
+
         }
+
+
+
+        /* ==================================================
+           CELULARES PEQUEÑOS
+        ================================================== */
+
+        @media (max-width: 390px) {
+
+
+            .foto-ares {
+
+                width: 165px;
+                height: 165px;
+            }
+
+
+            .carrusel-btn {
+
+                width: 34px;
+                height: 34px;
+
+                font-size: 1.5rem;
+            }
+
+
+            .carrusel-ares {
+
+                gap: 6px;
+            }
+
+        }
+
     </style>
+
 </head>
+
+
 
 <body>
 
-    <!-- PRIMERA PANTALLA -->
-    <section class="inicio" id="inicio">
+
+    <!-- ==================================================
+         PRIMERA PANTALLA
+    =================================================== -->
+
+    <section
+        class="inicio"
+        id="inicio"
+    >
+
 
         <div class="contenido-inicio">
 
-            <div class="flor-principal">🌻</div>
 
-            <h1>Ale, tengo algo para ti 💛</h1>
+            <!-- GIRASOL -->
 
-            <div class="foto-ares">
-                <img src="ares.jpg" alt="Ares">
+            <div class="flor-principal">
+
+                🌻
+
             </div>
 
+
+
+            <!-- TÍTULO -->
+
+            <h1>
+
+                Ale, tengo algo para ti 💛
+
+            </h1>
+
+
+
+            <!-- ==================================================
+                 CARRUSEL DE ARES
+            =================================================== -->
+
+            <div class="carrusel-ares">
+
+
+                <!-- FLECHA IZQUIERDA -->
+
+                <button
+                    class="carrusel-btn"
+                    type="button"
+                    onclick="cambiarFoto(-1)"
+                    aria-label="Foto anterior"
+                >
+
+                    ‹
+
+                </button>
+
+
+
+                <!-- FOTO -->
+
+                <div class="foto-ares">
+
+                    <img
+                        id="fotoAres"
+                        src="foto-1.jpg"
+                        alt="Ares"
+                    >
+
+                </div>
+
+
+
+                <!-- FLECHA DERECHA -->
+
+                <button
+                    class="carrusel-btn"
+                    type="button"
+                    onclick="cambiarFoto(1)"
+                    aria-label="Foto siguiente"
+                >
+
+                    ›
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 INDICADORES DEL CARRUSEL
+            =================================================== -->
+
+            <div class="indicadores">
+
+
+                <button
+                    class="punto activo"
+                    type="button"
+                    onclick="irFoto(0)"
+                    aria-label="Ver foto 1"
+                ></button>
+
+
+                <button
+                    class="punto"
+                    type="button"
+                    onclick="irFoto(1)"
+                    aria-label="Ver foto 2"
+                ></button>
+
+
+                <button
+                    class="punto"
+                    type="button"
+                    onclick="irFoto(2)"
+                    aria-label="Ver foto 3"
+                ></button>
+
+
+                <button
+                    class="punto"
+                    type="button"
+                    onclick="irFoto(3)"
+                    aria-label="Ver foto 4"
+                ></button>
+
+
+            </div>
+
+
+
+            <!-- TEXTO ARES -->
+
             <p class="foto-texto">
-                Con la supervisión de Ares 🐾
+
+                🐾 Con la supervisión de Ares 🐾
+
             </p>
+
+
+
+            <!-- TEXTO PRINCIPAL -->
 
             <p class="subtitulo">
-                Tú sabes que no necesito una fecha especial para regalarte flores. 🌻
+
+                Tú sabes que no necesito una fecha especial
+                para regalarte flores. 🌻
+
                 <br>
-                Es algo pequeño, pero quería que lo tuvieras hoy. 🤍
+
+                Es algo pequeño,
+                pero quería que lo tuvieras hoy. 🤍
+
             </p>
 
+
+
+            <!-- SEPARADOR -->
+
+            <div class="separador">
+
+                <span>
+
+                    💛
+
+                </span>
+
+            </div>
+
+
+
+            <!-- DETALLE -->
+
             <p class="detalle-especial">
-                Un detalle con mucho cariño para una persona maravillosa 🌻
+
+                Un detalle con mucho cariño
+                para una persona maravillosa 🌻
+
             </p>
+
+
+
+            <!-- BOTÓN -->
 
             <button
                 class="boton-sorpresa"
                 type="button"
-                onclick="abrirSorpresa()">
+                onclick="abrirSorpresa()"
+            >
+
                 Toca aquí 🌻
+
             </button>
+
 
         </div>
 
+
+
+        <!-- ==================================================
+             FOOTER PRIMERA PANTALLA
+        =================================================== -->
+
         <footer class="footer">
 
+
             <div class="footer-item">
-                <div class="developer-icon">&lt;/&gt;</div>
+
+
+                <div class="developer-icon">
+
+                    &lt;/&gt;
+
+                </div>
+
 
                 <div>
-                    <div class="footer-title">Creado por</div>
+
+
+                    <div class="footer-title">
+
+                        Creado por
+
+                    </div>
+
 
                     <div class="footer-value">
-                        <a href="mailto:juan.castro.socla@gmail.com">
+
+
+                        <a
+                            href="mailto:juan.castro.socla@gmail.com"
+                        >
+
                             juan.castro.socla@gmail.com
+
                         </a>
+
+
                     </div>
+
+
                 </div>
+
+
             </div>
+
+
 
             <div class="footer-divider"></div>
 
+
+
             <div class="footer-item">
-                <div class="footer-icon">📅</div>
+
+
+                <div class="footer-icon">
+
+                    📅
+
+                </div>
+
 
                 <div>
-                    <div class="footer-value" id="fechaActual"></div>
+
+
+                    <div
+                        class="footer-value"
+                        id="fechaActual"
+                    ></div>
+
+
                     <div class="footer-title">
+
                         Día de las flores amarillas 💛
+
                     </div>
+
+
                 </div>
+
+
             </div>
 
+
         </footer>
+
 
     </section>
 
 
-    <!-- SEGUNDA PANTALLA -->
-    <section class="sorpresa" id="sorpresa">
+
+
+    <!-- ==================================================
+         SEGUNDA PANTALLA
+    =================================================== -->
+
+    <section
+        class="sorpresa"
+        id="sorpresa"
+    >
+
+
+        <!-- BOTÓN VOLVER -->
 
         <button
             class="btn-volver"
             type="button"
             onclick="volverInicio()"
-            aria-label="Volver al inicio">
+        >
+
             ← Volver
+
         </button>
 
-        <div class="fecha" id="fechaSorpresa"></div>
 
-        <h2>Tus flores amarillas 🌻💛</h2>
+
+        <!-- FECHA -->
+
+        <div
+            class="fecha"
+            id="fechaSorpresa"
+        ></div>
+
+
+
+        <!-- TÍTULO -->
+
+        <h2>
+
+            Tus flores amarillas 🌻💛
+
+        </h2>
+
+
+
+        <!-- RAMO -->
 
         <div class="ramo">
+
             🌻 🌻 🌻
+
             <br>
+
             🌻 🌼 🌻 🌼
+
             <br>
+
             🌼 🌻 🌻 🌻 🌼
+
             <br>
+
             🌿 🌿 🌿
+
         </div>
+
+
+
+        <!-- ==================================================
+             MENSAJE
+        =================================================== -->
 
         <div class="mensaje">
 
+
             <p class="mensaje-titulo">
+
                 🌻 Para ti, Ale 💛
+
             </p>
+
 
             <br>
 
+
             <p>
+
                 Quizás esta vez no pude entregártelas personalmente,
-                pero no quería dejar pasar la oportunidad de hacerte llegar
-                tus flores amarillas, aunque fuera de una manera diferente.
+                pero no quería dejar pasar la oportunidad
+                de hacerte llegar tus flores amarillas,
+                aunque fuera de una manera diferente.
+
             </p>
+
 
             <br>
 
+
             <p>
+
                 Espero que tengas un lindo día
                 y que este pequeño detalle
                 te saque una sonrisa. 🌻✨
+
             </p>
 
+
+
             <div class="firma">
+
                 Con cariño,
+
                 <br>
+
                 JuanKa 💛
+
             </div>
+
 
         </div>
 
+
+
+        <!-- ==================================================
+             FOOTER SEGUNDA PANTALLA
+        =================================================== -->
+
         <footer class="footer-sorpresa">
 
+
             <div class="footer-item">
-                <div class="developer-icon">&lt;/&gt;</div>
+
+
+                <div class="developer-icon">
+
+                    &lt;/&gt;
+
+                </div>
+
 
                 <div>
-                    <div class="footer-title">Creado por</div>
+
+
+                    <div class="footer-title">
+
+                        Creado por
+
+                    </div>
+
 
                     <div class="footer-value">
-                        <a href="mailto:juan.castro.socla@gmail.com">
+
+
+                        <a
+                            href="mailto:juan.castro.socla@gmail.com"
+                        >
+
                             juan.castro.socla@gmail.com
+
                         </a>
+
+
                     </div>
+
+
                 </div>
+
+
             </div>
+
+
 
             <div class="footer-divider"></div>
 
+
+
             <div class="footer-item">
-                <div class="footer-icon">📅</div>
+
+
+                <div class="footer-icon">
+
+                    📅
+
+                </div>
+
 
                 <div>
-                    <div class="footer-value" id="fechaActualSorpresa"></div>
+
+
+                    <div
+                        class="footer-value"
+                        id="fechaActualSorpresa"
+                    ></div>
+
+
                     <div class="footer-title">
+
                         Día de las flores amarillas 💛
+
                     </div>
+
+
                 </div>
+
+
             </div>
 
+
         </footer>
+
 
     </section>
 
 
+
+
     <script>
+
+        /* ==================================================
+           VARIABLES GENERALES
+        ================================================== */
+
         let animacionId = 0;
 
-        document.addEventListener("DOMContentLoaded", function () {
-            actualizarFecha();
-        });
+
+        const fotosAres = [
+
+            "foto-1.jpg",
+
+            "foto-2.jpg",
+
+            "foto-3.jpg",
+
+            "foto-4.jpg"
+
+        ];
+
+
+        let fotoActual = 0;
+
+        let intervaloCarrusel;
+
+
+
+        /* ==================================================
+           CARGA DE LA PÁGINA
+        ================================================== */
+
+        document.addEventListener(
+
+            "DOMContentLoaded",
+
+            function () {
+
+
+                actualizarFecha();
+
+
+                mostrarFoto();
+
+
+                iniciarCarrusel();
+
+
+            }
+
+        );
+
+
+
+        /* ==================================================
+           FECHA DEL SISTEMA
+        ================================================== */
 
         function actualizarFecha() {
-            const fechaSistema = new Date();
 
-            const fechaCompleta = fechaSistema.toLocaleDateString(
-                "es-PE",
-                {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric"
-                }
-            );
 
-            document.getElementById("fechaActual").textContent =
-                fechaCompleta;
+            const fecha =
+                new Date();
 
-            document.getElementById("fechaActualSorpresa").textContent =
-                fechaCompleta;
 
-            const dia = fechaSistema.getDate();
 
-            const mes = fechaSistema
-                .toLocaleDateString(
+            const fechaCompleta =
+                fecha.toLocaleDateString(
+
                     "es-PE",
-                    { month: "long" }
-                )
-                .toUpperCase();
 
-            const anio = fechaSistema.getFullYear();
+                    {
 
-            document.getElementById("fechaSorpresa").textContent =
+                        day: "numeric",
+
+                        month: "long",
+
+                        year: "numeric"
+
+                    }
+
+                );
+
+
+
+            document.getElementById(
+                "fechaActual"
+            ).textContent =
+                fechaCompleta;
+
+
+
+            document.getElementById(
+                "fechaActualSorpresa"
+            ).textContent =
+                fechaCompleta;
+
+
+
+            const dia =
+                fecha.getDate();
+
+
+
+            const mes =
+                fecha
+                    .toLocaleDateString(
+
+                        "es-PE",
+
+                        {
+                            month: "long"
+                        }
+
+                    )
+                    .toUpperCase();
+
+
+
+            const anio =
+                fecha.getFullYear();
+
+
+
+            document.getElementById(
+                "fechaSorpresa"
+            ).textContent =
+
                 `${dia} • ${mes} • ${anio}`;
+
         }
 
+
+
+        /* ==================================================
+           CARRUSEL
+        ================================================== */
+
+        function cambiarFoto(
+            direccion
+        ) {
+
+
+            fotoActual +=
+                direccion;
+
+
+
+            if (
+                fotoActual >=
+                fotosAres.length
+            ) {
+
+                fotoActual = 0;
+
+            }
+
+
+
+            if (
+                fotoActual < 0
+            ) {
+
+                fotoActual =
+                    fotosAres.length - 1;
+
+            }
+
+
+
+            mostrarFoto();
+
+
+            reiniciarCarrusel();
+
+        }
+
+
+
+        /* ==================================================
+           IR DIRECTAMENTE A UNA FOTO
+        ================================================== */
+
+        function irFoto(
+            indice
+        ) {
+
+
+            fotoActual =
+                indice;
+
+
+            mostrarFoto();
+
+
+            reiniciarCarrusel();
+
+        }
+
+
+
+        /* ==================================================
+           MOSTRAR FOTO
+        ================================================== */
+
+        function mostrarFoto() {
+
+
+            const imagen =
+                document.getElementById(
+                    "fotoAres"
+                );
+
+
+            const puntos =
+                document.querySelectorAll(
+                    ".punto"
+                );
+
+
+
+            imagen.style.opacity =
+                "0";
+
+
+            imagen.style.transform =
+                "scale(0.94)";
+
+
+
+            setTimeout(
+
+                function () {
+
+
+                    imagen.src =
+                        fotosAres[
+                            fotoActual
+                        ];
+
+
+
+                    imagen.style.opacity =
+                        "1";
+
+
+                    imagen.style.transform =
+                        "scale(1)";
+
+
+                },
+
+                180
+
+            );
+
+
+
+            puntos.forEach(
+
+                function (
+                    punto,
+                    indice
+                ) {
+
+
+                    punto.classList.toggle(
+
+                        "activo",
+
+                        indice ===
+                        fotoActual
+
+                    );
+
+
+                }
+
+            );
+
+        }
+
+
+
+        /* ==================================================
+           INICIAR CARRUSEL AUTOMÁTICO
+        ================================================== */
+
+        function iniciarCarrusel() {
+
+
+            clearInterval(
+                intervaloCarrusel
+            );
+
+
+            intervaloCarrusel =
+                setInterval(
+
+                    function () {
+
+
+                        fotoActual++;
+
+
+
+                        if (
+                            fotoActual >=
+                            fotosAres.length
+                        ) {
+
+                            fotoActual = 0;
+
+                        }
+
+
+
+                        mostrarFoto();
+
+
+                    },
+
+                    4000
+
+                );
+
+        }
+
+
+
+        /* ==================================================
+           REINICIAR CARRUSEL
+        ================================================== */
+
+        function reiniciarCarrusel() {
+
+
+            clearInterval(
+                intervaloCarrusel
+            );
+
+
+            iniciarCarrusel();
+
+        }
+
+
+
+        /* ==================================================
+           ABRIR SORPRESA
+        ================================================== */
+
         function abrirSorpresa() {
-            const inicio = document.getElementById("inicio");
-            const sorpresa = document.getElementById("sorpresa");
+
 
             actualizarFecha();
 
-            inicio.style.display = "none";
-            sorpresa.style.display = "block";
+
+
+            document.getElementById(
+                "inicio"
+            ).style.display =
+                "none";
+
+
+
+            document.getElementById(
+                "sorpresa"
+            ).style.display =
+                "block";
+
+
+
+            /*
+                Mientras está abierta la sorpresa
+                pausamos el carrusel.
+            */
+
+            clearInterval(
+                intervaloCarrusel
+            );
+
+
 
             window.scrollTo({
+
                 top: 0,
+
                 behavior: "smooth"
+
             });
 
+
+
             animacionId++;
-            crearPetalos(animacionId);
+
+
+            crearPetalos(
+                animacionId
+            );
+
         }
+
+
+
+        /* ==================================================
+           VOLVER AL INICIO
+        ================================================== */
 
         function volverInicio() {
-            const inicio = document.getElementById("inicio");
-            const sorpresa = document.getElementById("sorpresa");
 
-            /* Invalida los temporizadores de la animación anterior */
+
             animacionId++;
 
-            sorpresa.style.display = "none";
-            inicio.style.display = "flex";
+
+
+            document.getElementById(
+                "sorpresa"
+            ).style.display =
+                "none";
+
+
+
+            document.getElementById(
+                "inicio"
+            ).style.display =
+                "flex";
+
+
 
             document
-                .querySelectorAll(".petalo")
-                .forEach(function (petalo) {
-                    petalo.remove();
-                });
+                .querySelectorAll(
+                    ".petalo"
+                )
+                .forEach(
 
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        }
-
-        function crearPetalos(idActual) {
-            const elementos = ["🌻", "💛", "🌼"];
-
-            for (let i = 0; i < 40; i++) {
-                setTimeout(function () {
-
-                    const sorpresa =
-                        document.getElementById("sorpresa");
-
-                    /*
-                       Evita que una animación anterior vuelva
-                       a crear flores si se pulsa Volver y luego
-                       se abre la sorpresa rápidamente.
-                    */
-                    if (
-                        idActual !== animacionId ||
-                        sorpresa.style.display === "none"
+                    function (
+                        petalo
                     ) {
-                        return;
+
+                        petalo.remove();
+
                     }
 
-                    const petalo =
-                        document.createElement("div");
+                );
 
-                    petalo.classList.add("petalo");
 
-                    petalo.textContent =
-                        elementos[
-                            Math.floor(
-                                Math.random() * elementos.length
-                            )
-                        ];
 
-                    petalo.style.left =
-                        Math.random() * 100 + "vw";
+            /*
+                Reactivamos el carrusel.
+            */
 
-                    petalo.style.fontSize =
-                        (18 + Math.random() * 20) + "px";
+            iniciarCarrusel();
 
-                    petalo.style.animationDuration =
-                        (4 + Math.random() * 5) + "s";
 
-                    document.body.appendChild(petalo);
 
-                    setTimeout(function () {
-                        petalo.remove();
-                    }, 9500);
+            window.scrollTo({
 
-                }, i * 150);
-            }
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
         }
+
+
+
+        /* ==================================================
+           FLORES CAYENDO
+        ================================================== */
+
+        function crearPetalos(
+            idActual
+        ) {
+
+
+            const elementos = [
+
+                "🌻",
+
+                "💛",
+
+                "🌼"
+
+            ];
+
+
+
+            for (
+                let i = 0;
+                i < 40;
+                i++
+            ) {
+
+
+                setTimeout(
+
+                    function () {
+
+
+                        if (
+
+                            idActual !==
+                            animacionId
+
+                            ||
+
+                            document.getElementById(
+                                "sorpresa"
+                            ).style.display ===
+                            "none"
+
+                        ) {
+
+                            return;
+
+                        }
+
+
+
+                        const petalo =
+                            document.createElement(
+                                "div"
+                            );
+
+
+
+                        petalo.className =
+                            "petalo";
+
+
+
+                        petalo.textContent =
+
+                            elementos[
+
+                                Math.floor(
+
+                                    Math.random()
+                                    *
+                                    elementos.length
+
+                                )
+
+                            ];
+
+
+
+                        petalo.style.left =
+
+                            Math.random()
+                            *
+                            100
+                            +
+                            "vw";
+
+
+
+                        petalo.style.fontSize =
+
+                            (
+                                18
+                                +
+                                Math.random()
+                                *
+                                20
+                            )
+
+                            +
+                            "px";
+
+
+
+                        petalo.style.animationDuration =
+
+                            (
+                                4
+                                +
+                                Math.random()
+                                *
+                                5
+                            )
+
+                            +
+                            "s";
+
+
+
+                        document.body.appendChild(
+                            petalo
+                        );
+
+
+
+                        setTimeout(
+
+                            function () {
+
+                                petalo.remove();
+
+                            },
+
+                            9500
+
+                        );
+
+
+                    },
+
+                    i * 150
+
+                );
+
+            }
+
+        }
+
     </script>
 
+
 </body>
+
 </html>

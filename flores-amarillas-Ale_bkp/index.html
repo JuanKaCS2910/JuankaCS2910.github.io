@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Ale 🌻💛</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            min-height: 100%;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at center, rgba(255,255,255,.45), transparent 50%),
+                linear-gradient(135deg, #fff8c6, #ffe66d);
+            color: #4d3b00;
+            overflow-x: hidden;
+        }
+
+        /* PRIMERA PANTALLA */
+        .inicio {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            padding: 30px 20px 145px;
+        }
+
+        .contenido-inicio {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            animation: aparecer 1.3s ease;
+        }
+
+        .flor-principal {
+            font-size: 4.5rem;
+            margin-bottom: 10px;
+            animation: flotar 3s ease-in-out infinite;
+            filter: drop-shadow(0 8px 10px rgba(120,90,0,.15));
+        }
+
+        .inicio h1 {
+            font-size: 2.5rem;
+            margin-bottom: 18px;
+        }
+
+        /* FOTO DE ARES */
+        .foto-ares {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 8px;
+            padding: 5px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.82);
+            box-shadow: 0 12px 35px rgba(100,75,0,.20);
+            animation: aparecerFoto 1.3s ease;
+        }
+
+        .foto-ares img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: 38% center;
+            border-radius: 50%;
+        }
+
+        @media (max-width: 650px) {
+
+            .foto-ares {
+                width: 155px;
+                height: 155px;
+            }
+
+        }
+
+        .foto-texto {
+            margin-bottom: 16px;
+            font-size: .86rem;
+            font-weight: 500;
+            color: #6b5200;
+            opacity: .72;
+        }
+
+        .subtitulo {
+            max-width: 650px;
+            margin-bottom: 15px;
+            font-size: 1.15rem;
+            line-height: 1.7;
+            opacity: .85;
+        }
+
+        .detalle-especial {
+            max-width: 650px;
+            margin-bottom: 25px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #6b5200;
+            line-height: 1.6;
+            letter-spacing: .2px;
+        }
+
+        .boton-sorpresa {
+            border: none;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            border-radius: 40px;
+            background: linear-gradient(135deg, #f5b700, #ffbf00);
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(150,110,0,.22);
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .boton-sorpresa:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(150,110,0,.28);
+        }
+
+        .boton-sorpresa:active {
+            transform: scale(.97);
+        }
+
+        /* FOOTERS */
+        .footer {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(850px, 90%);
+            border-top: 1px solid rgba(100,75,0,.20);
+            padding-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 35px;
+            font-size: .88rem;
+            color: #554500;
+        }
+
+        .footer-sorpresa {
+            width: min(850px, 90%);
+            margin: 55px auto 0;
+            border-top: 1px solid rgba(100,75,0,.20);
+            padding-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 35px;
+            font-size: .88rem;
+            color: #554500;
+        }
+
+        .footer-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-align: left;
+        }
+
+        .developer-icon {
+            font-family: Consolas, "Courier New", monospace;
+            font-weight: bold;
+            font-size: 1.7rem;
+        }
+
+        .footer-icon {
+            font-size: 1.7rem;
+        }
+
+        .footer-divider {
+            width: 1px;
+            height: 45px;
+            background: rgba(100,75,0,.25);
+        }
+
+        .footer-title {
+            font-size: .78rem;
+            opacity: .70;
+            margin-bottom: 3px;
+        }
+
+        .footer-value {
+            font-weight: 600;
+        }
+
+        .footer a,
+        .footer-sorpresa a {
+            color: #554500;
+            text-decoration: none;
+        }
+
+        .footer a:hover,
+        .footer-sorpresa a:hover {
+            text-decoration: underline;
+        }
+
+        /* SEGUNDA PANTALLA */
+        .sorpresa {
+            display: none;
+            min-height: 100vh;
+            padding: 70px 20px 45px;
+            position: relative;
+            text-align: center;
+            animation: aparecer 1.3s ease;
+        }
+
+        .btn-volver {
+            position: fixed;
+            top: 25px;
+            left: 30px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 18px;
+            border: 1px solid rgba(77,59,0,.15);
+            border-radius: 30px;
+            background: rgba(255,255,255,.60);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: #4d3b00;
+            font-size: .95rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(100,80,0,.10);
+            transition: transform .3s ease, background .3s ease, box-shadow .3s ease;
+            z-index: 200;
+        }
+
+        .btn-volver:hover {
+            background: rgba(255,255,255,.90);
+            transform: translateX(-4px);
+            box-shadow: 0 8px 25px rgba(100,80,0,.15);
+        }
+
+        .fecha {
+            font-size: 1rem;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            opacity: .75;
+        }
+
+        .sorpresa h2 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+        }
+
+        .ramo {
+            font-size: 4rem;
+            max-width: 500px;
+            margin: 20px auto 35px;
+            line-height: 1.2;
+            animation: crecer 1.8s ease;
+        }
+
+        .mensaje {
+            background: rgba(255,255,255,.72);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            max-width: 550px;
+            margin: auto;
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(100,80,0,.12);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .mensaje-titulo {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .firma {
+            margin-top: 25px;
+            font-weight: bold;
+        }
+
+        .petalo {
+            position: fixed;
+            top: -50px;
+            z-index: 100;
+            pointer-events: none;
+            animation: caer linear forwards;
+        }
+
+        @keyframes aparecer {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes aparecerFoto {
+            from { opacity: 0; transform: scale(.80) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        @keyframes crecer {
+            0% { transform: scale(0); opacity: 0; }
+            70% { transform: scale(1.15); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes flotar {
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+
+        @keyframes caer {
+            from { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+            to { transform: translateY(110vh) rotate(720deg); opacity: .7; }
+        }
+
+        @media (max-width: 650px) {
+            .inicio {
+                padding: 25px 20px 235px;
+            }
+
+            .contenido-inicio {
+                justify-content: flex-start;
+                padding-top: 15px;
+            }
+
+            .flor-principal {
+                font-size: 3.5rem;
+                margin-bottom: 5px;
+            }
+
+            .inicio h1 {
+                font-size: 1.8rem;
+                margin-bottom: 14px;
+            }
+
+            .foto-ares {
+                width: 110px;
+                height: 110px;
+            }
+
+            .foto-texto {
+                margin-bottom: 12px;
+            }
+
+            .subtitulo {
+                font-size: .98rem;
+                margin-bottom: 12px;
+            }
+
+            .detalle-especial {
+                font-size: 1rem;
+                margin-bottom: 20px;
+            }
+
+            .footer,
+            .footer-sorpresa {
+                width: 85%;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .footer-divider {
+                width: 100%;
+                height: 1px;
+            }
+
+            .footer-sorpresa {
+                margin-top: 40px;
+            }
+
+            .btn-volver {
+                top: 15px;
+                left: 15px;
+                padding: 9px 14px;
+                font-size: .85rem;
+            }
+
+            .sorpresa {
+                padding-top: 80px;
+            }
+
+            .sorpresa h2 {
+                font-size: 1.8rem;
+            }
+
+            .ramo {
+                font-size: 3rem;
+            }
+
+            .mensaje {
+                padding: 25px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PRIMERA PANTALLA -->
+    <section class="inicio" id="inicio">
+
+        <div class="contenido-inicio">
+
+            <div class="flor-principal">🌻</div>
+
+            <h1>Ale, tengo algo para ti 💛</h1>
+
+            <div class="foto-ares">
+                <img src="ares.jpg" alt="Ares">
+            </div>
+
+            <p class="foto-texto">
+                Con la supervisión de Ares 🐾
+            </p>
+
+            <p class="subtitulo">
+                Tú sabes que no necesito una fecha especial para regalarte flores. 🌻
+                <br>
+                Es algo pequeño, pero quería que lo tuvieras hoy. 🤍
+            </p>
+
+            <!-- <p class="detalle-especial">
+                Un detalle con mucho cariño para una persona maravillosa 🌻
+            </p> -->
+
+            <button
+                class="boton-sorpresa"
+                type="button"
+                onclick="abrirSorpresa()">
+                Toca aquí 🌻
+            </button>
+
+        </div>
+
+        <footer class="footer">
+
+            <div class="footer-item">
+                <div class="developer-icon">&lt;/&gt;</div>
+
+                <div>
+                    <div class="footer-title">Creado por</div>
+
+                    <div class="footer-value">
+                        <a href="mailto:juan.castro.socla@gmail.com">
+                            juan.castro.socla@gmail.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-item">
+                <div class="footer-icon">📅</div>
+
+                <div>
+                    <div class="footer-value" id="fechaActual"></div>
+                    <div class="footer-title">
+                        Día de las flores amarillas 💛
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+
+    </section>
+
+
+    <!-- SEGUNDA PANTALLA -->
+    <section class="sorpresa" id="sorpresa">
+
+        <button
+            class="btn-volver"
+            type="button"
+            onclick="volverInicio()"
+            aria-label="Volver al inicio">
+            ← Volver
+        </button>
+
+        <div class="fecha" id="fechaSorpresa"></div>
+
+        <h2>Tus flores amarillas 🌻💛</h2>
+
+        <div class="ramo">
+            🌻 🌻 🌻
+            <br>
+            🌻 🌼 🌻 🌼
+            <br>
+            🌼 🌻 🌻 🌻 🌼
+            <br>
+            🌿 🌿 🌿
+        </div>
+
+        <div class="mensaje">
+
+            <p class="mensaje-titulo">
+                🌻 Para ti, Ale 💛
+            </p>
+
+            <br>
+
+            <p>
+                Quizás esta vez no pude entregártelas personalmente,
+                pero no quería dejar pasar la oportunidad de hacerte llegar
+                tus flores amarillas, aunque fuera de una manera diferente.
+            </p>
+
+            <br>
+
+            <p>
+                Espero que tengas un lindo día
+                y que este pequeño detalle
+                te saque una sonrisa. 🌻✨
+            </p>
+
+            <div class="firma">
+                Con cariño,
+                <br>
+                JuanKa 💛
+            </div>
+
+        </div>
+
+        <footer class="footer-sorpresa">
+
+            <div class="footer-item">
+                <div class="developer-icon">&lt;/&gt;</div>
+
+                <div>
+                    <div class="footer-title">Creado por</div>
+
+                    <div class="footer-value">
+                        <a href="mailto:juan.castro.socla@gmail.com">
+                            juan.castro.socla@gmail.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-item">
+                <div class="footer-icon">📅</div>
+
+                <div>
+                    <div class="footer-value" id="fechaActualSorpresa"></div>
+                    <div class="footer-title">
+                        Día de las flores amarillas 💛
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+
+    </section>
+
+
+    <script>
+        let animacionId = 0;
+
+        document.addEventListener("DOMContentLoaded", function () {
+            actualizarFecha();
+        });
+
+        function actualizarFecha() {
+            const fechaSistema = new Date();
+
+            const fechaCompleta = fechaSistema.toLocaleDateString(
+                "es-PE",
+                {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric"
+                }
+            );
+
+            document.getElementById("fechaActual").textContent =
+                fechaCompleta;
+
+            document.getElementById("fechaActualSorpresa").textContent =
+                fechaCompleta;
+
+            const dia = fechaSistema.getDate();
+
+            const mes = fechaSistema
+                .toLocaleDateString(
+                    "es-PE",
+                    { month: "long" }
+                )
+                .toUpperCase();
+
+            const anio = fechaSistema.getFullYear();
+
+            document.getElementById("fechaSorpresa").textContent =
+                `${dia} • ${mes} • ${anio}`;
+        }
+
+        function abrirSorpresa() {
+            const inicio = document.getElementById("inicio");
+            const sorpresa = document.getElementById("sorpresa");
+
+            actualizarFecha();
+
+            inicio.style.display = "none";
+            sorpresa.style.display = "block";
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+            animacionId++;
+            crearPetalos(animacionId);
+        }
+
+        function volverInicio() {
+            const inicio = document.getElementById("inicio");
+            const sorpresa = document.getElementById("sorpresa");
+
+            /* Invalida los temporizadores de la animación anterior */
+            animacionId++;
+
+            sorpresa.style.display = "none";
+            inicio.style.display = "flex";
+
+            document
+                .querySelectorAll(".petalo")
+                .forEach(function (petalo) {
+                    petalo.remove();
+                });
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+        function crearPetalos(idActual) {
+            const elementos = ["🌻", "💛", "🌼"];
+
+            for (let i = 0; i < 40; i++) {
+                setTimeout(function () {
+
+                    const sorpresa =
+                        document.getElementById("sorpresa");
+
+                    /*
+                       Evita que una animación anterior vuelva
+                       a crear flores si se pulsa Volver y luego
+                       se abre la sorpresa rápidamente.
+                    */
+                    if (
+                        idActual !== animacionId ||
+                        sorpresa.style.display === "none"
+                    ) {
+                        return;
+                    }
+
+                    const petalo =
+                        document.createElement("div");
+
+                    petalo.classList.add("petalo");
+
+                    petalo.textContent =
+                        elementos[
+                            Math.floor(
+                                Math.random() * elementos.length
+                            )
+                        ];
+
+                    petalo.style.left =
+                        Math.random() * 100 + "vw";
+
+                    petalo.style.fontSize =
+                        (18 + Math.random() * 20) + "px";
+
+                    petalo.style.animationDuration =
+                        (4 + Math.random() * 5) + "s";
+
+                    document.body.appendChild(petalo);
+
+                    setTimeout(function () {
+                        petalo.remove();
+                    }, 9500);
+
+                }, i * 150);
+            }
+        }
+    </script>
+
+</body>
+</html>

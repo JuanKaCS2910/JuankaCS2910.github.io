@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Para Ale 🌻💛</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #fff8c6, #ffe66d);
+      min-height: 100vh;
+      overflow-x: hidden;
+      text-align: center;
+      color: #4d3b00;
+    }
+
+    .inicio {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      transition: 1s;
+    }
+
+    .inicio h1 {
+      font-size: 2.4rem;
+      margin-bottom: 15px;
+      animation: aparecer 1.5s ease;
+    }
+
+    .inicio p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    button {
+      border: none;
+      padding: 16px 30px;
+      font-size: 1.1rem;
+      border-radius: 40px;
+      background: #f5b700;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0,0,0,.15);
+      transition: .3s;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+    }
+
+    .sorpresa {
+      display: none;
+      min-height: 100vh;
+      padding: 50px 20px;
+      animation: aparecer 1.5s ease;
+    }
+
+    .fecha {
+      font-size: 1rem;
+      letter-spacing: 3px;
+      margin-bottom: 15px;
+    }
+
+    .sorpresa h2 {
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+    }
+
+    .ramo {
+      font-size: 4rem;
+      max-width: 500px;
+      margin: 20px auto 35px;
+      animation: crecer 1.8s ease;
+      line-height: 1.2;
+    }
+
+    .mensaje {
+      background: rgba(255,255,255,.75);
+      backdrop-filter: blur(10px);
+      max-width: 550px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 25px;
+      box-shadow: 0 10px 35px rgba(0,0,0,.12);
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .firma {
+      margin-top: 25px;
+      font-weight: bold;
+    }
+
+    .petalo {
+      position: fixed;
+      top: -40px;
+      font-size: 25px;
+      z-index: 10;
+      animation: caer linear forwards;
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes crecer {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+
+      70% {
+        transform: scale(1.15);
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes caer {
+      to {
+        transform: translateY(110vh) rotate(720deg);
+      }
+    }
+
+    @media(max-width:600px) {
+      .inicio h1 {
+        font-size: 2rem;
+      }
+
+      .sorpresa h2 {
+        font-size: 1.8rem;
+      }
+
+      .ramo {
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="inicio" id="inicio">
+
+    <h1>Ale, tengo algo para ti 💛</h1>
+
+    <p>
+      Es algo pequeño, pero quería que lo tuvieras hoy.
+    </p>
+
+    <button onclick="abrirSorpresa()">
+      Toca aquí 🌻
+    </button>
+
+  </section>
+
+
+  <section class="sorpresa" id="sorpresa">
+
+    <div class="fecha">
+      21 • SEPTIEMBRE
+    </div>
+
+    <h2>
+      Tus flores amarillas 🌻💛
+    </h2>
+
+    <div class="ramo">
+      🌻 🌻 🌻<br>
+      🌻 🌼 🌻 🌼<br>
+      🌼 🌻 🌻 🌻 🌼<br>
+      🌿 🌿 🌿
+    </div>
+
+    <div class="mensaje">
+
+      <p>
+        🌻 Para ti, Ale 💛
+      </p>
+
+      <br>
+
+      <p>
+        Hoy 21 de septiembre no quería dejar pasar
+        la oportunidad de regalarte tus flores amarillas,
+        aunque esta vez sean de una manera diferente.
+      </p>
+
+      <br>
+
+      <p>
+        Espero que tengas un lindo día y que estas
+        pequeñas flores te saquen una sonrisa. 🌻✨
+      </p>
+
+      <div class="firma">
+        Con cariño,<br>
+        Juan Carlos 💛
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <script>
+
+    function abrirSorpresa() {
+
+      document.getElementById("inicio").style.display = "none";
+
+      document.getElementById("sorpresa").style.display = "block";
+
+      crearPetalos();
+
+    }
+
+
+    function crearPetalos() {
+
+      for (let i = 0; i < 35; i++) {
+
+        setTimeout(() => {
+
+          const petalo = document.createElement("div");
+
+          petalo.classList.add("petalo");
+
+          const flores = ["🌻", "💛", "🌼"];
+
+          petalo.innerHTML =
+            flores[Math.floor(Math.random() * flores.length)];
+
+          petalo.style.left =
+            Math.random() * 100 + "vw";
+
+          petalo.style.animationDuration =
+            (4 + Math.random() * 5) + "s";
+
+          document.body.appendChild(petalo);
+
+          setTimeout(() => {
+            petalo.remove();
+          }, 9000);
+
+        }, i * 150);
+
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>

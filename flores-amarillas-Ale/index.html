@@ -2,335 +2,534 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Para Ale 🌻💛</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      min-height: 100vh;
-      background:
-        radial-gradient(
-          circle at center,
-          rgba(255, 255, 255, .45),
-          transparent 50%
-        ),
-        linear-gradient(135deg, #fff8c6, #ffe66d);
-
-      color: #4d3b00;
-      overflow-x: hidden;
-    }
-
-    /* =========================
-       PANTALLA INICIAL
-    ========================== */
-
-    .inicio {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      padding: 30px 20px 120px;
-    }
-
-    .contenido-inicio {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      animation: aparecer 1.5s ease;
-    }
-
-    .flor-principal {
-      font-size: 5rem;
-      margin-bottom: 20px;
-      animation: flotar 3s ease-in-out infinite;
-      filter: drop-shadow(0 8px 10px rgba(120, 90, 0, .15));
-    }
-
-    .inicio h1 {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-    }
-
-    .inicio .subtitulo {
-      font-size: 1.15rem;
-      margin-bottom: 30px;
-      opacity: .85;
-    }
-
-    button {
-      border: none;
-      padding: 16px 32px;
-      font-size: 1.1rem;
-      border-radius: 40px;
-      background: linear-gradient(135deg, #f5b700, #ffbf00);
-      color: white;
-      cursor: pointer;
-      box-shadow: 0 10px 25px rgba(150, 110, 0, .22);
-      transition: .3s ease;
-    }
-
-    button:hover {
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 15px 30px rgba(150, 110, 0, .28);
-    }
-
-
-    /* =========================
-       FOOTER
-    ========================== */
-
-    .footer {
-      position: absolute;
-      bottom: 25px;
-      left: 50%;
-      transform: translateX(-50%);
-
-      width: min(850px, 90%);
-
-      border-top: 1px solid rgba(100, 75, 0, .20);
-      padding-top: 20px;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 35px;
-
-      font-size: .88rem;
-      color: #554500;
-    }
-
-    .footer-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-align: left;
-    }
-
-    .footer-icon {
-      font-size: 1.8rem;
-    }
-
-    .developer-icon {
-      font-family: Consolas, monospace;
-      font-weight: bold;
-      font-size: 1.7rem;
-    }
-
-    .footer-divider {
-      width: 1px;
-      height: 45px;
-      background: rgba(100, 75, 0, .25);
-    }
-
-    .footer-title {
-      font-size: .78rem;
-      opacity: .75;
-      margin-bottom: 3px;
-    }
-
-    .footer-value {
-      font-weight: 600;
-    }
-
-    .footer a {
-      color: #554500;
-      text-decoration: none;
-    }
-
-    .footer a:hover {
-      text-decoration: underline;
-    }
-
-
-    /* =========================
-       SORPRESA
-    ========================== */
-
-    .sorpresa {
-      display: none;
-      min-height: 100vh;
-      padding: 50px 20px;
-      text-align: center;
-      animation: aparecer 1.5s ease;
-    }
-
-    .fecha {
-      font-size: 1rem;
-      letter-spacing: 3px;
-      margin-bottom: 15px;
-    }
-
-    .sorpresa h2 {
-      font-size: 2.2rem;
-      margin-bottom: 30px;
-    }
-
-    .ramo {
-      font-size: 4rem;
-      max-width: 500px;
-      margin: 20px auto 35px;
-      animation: crecer 1.8s ease;
-      line-height: 1.2;
-    }
-
-    .mensaje {
-      background: rgba(255, 255, 255, .72);
-      backdrop-filter: blur(10px);
-
-      max-width: 550px;
-      margin: auto;
-      padding: 35px;
-
-      border-radius: 25px;
-
-      box-shadow:
-        0 15px 40px rgba(100, 80, 0, .12);
-
-      font-size: 1.1rem;
-      line-height: 1.8;
-    }
-
-    .firma {
-      margin-top: 25px;
-      font-weight: bold;
-    }
-
-
-    /* =========================
-       FLORES CAYENDO
-    ========================== */
-
-    .petalo {
-      position: fixed;
-      top: -50px;
-      font-size: 25px;
-      z-index: 10;
-      pointer-events: none;
-
-      animation: caer linear forwards;
-    }
-
-
-    /* =========================
-       ANIMACIONES
-    ========================== */
-
-    @keyframes aparecer {
-
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-
-    @keyframes crecer {
-
-      0% {
-        transform: scale(0);
-        opacity: 0;
-      }
-
-      70% {
-        transform: scale(1.15);
-      }
-
-      100% {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
-
-
-    @keyframes flotar {
-
-      0%,
-      100% {
-        transform: translateY(0) rotate(-2deg);
-      }
-
-      50% {
-        transform: translateY(-10px) rotate(2deg);
-      }
-    }
-
-
-    @keyframes caer {
-
-      to {
-        transform:
-          translateY(110vh)
-          rotate(720deg);
-      }
-    }
-
-
-    /* =========================
-       RESPONSIVE - CELULAR
-    ========================== */
-
-    @media (max-width: 650px) {
-
-      .inicio {
-        padding-bottom: 200px;
-      }
-
-      .flor-principal {
-        font-size: 4rem;
-      }
-
-      .inicio h1 {
-        font-size: 2rem;
-      }
-
-      .inicio .subtitulo {
-        font-size: 1rem;
-      }
-
-      .footer {
-        flex-direction: column;
-        gap: 12px;
-        align-items: flex-start;
-        width: 85%;
-      }
-
-      .footer-divider {
-        width: 100%;
-        height: 1px;
-      }
-
-      .sorpresa h2 {
-        font-size: 1.8rem;
-      }
-
-      .ramo {
-        font-size: 3rem;
-      }
-
-      .mensaje {
-        padding: 25px;
-        font-size: 1rem;
-      }
-    }
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para Ale 🌻💛</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            min-height: 100%;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(255, 255, 255, 0.45),
+                    transparent 50%
+                ),
+                linear-gradient(
+                    135deg,
+                    #fff8c6,
+                    #ffe66d
+                );
+
+            color: #4d3b00;
+            overflow-x: hidden;
+        }
+
+
+        /* =========================================
+           PANTALLA INICIAL
+        ========================================= */
+
+        .inicio {
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+
+            position: relative;
+
+            padding:
+                30px
+                20px
+                130px;
+        }
+
+
+        .contenido-inicio {
+            flex: 1;
+
+            display: flex;
+            flex-direction: column;
+
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            animation:
+                aparecer 1.5s ease;
+        }
+
+
+        .flor-principal {
+            font-size: 5rem;
+
+            margin-bottom: 20px;
+
+            animation:
+                flotar 3s
+                ease-in-out
+                infinite;
+
+            filter:
+                drop-shadow(
+                    0 8px 10px
+                    rgba(120, 90, 0, 0.15)
+                );
+        }
+
+
+        .inicio h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+
+        .subtitulo {
+            font-size: 1.15rem;
+
+            margin-bottom: 30px;
+
+            opacity: 0.85;
+        }
+
+
+        /* =========================================
+           BOTÓN
+        ========================================= */
+
+        .boton-sorpresa {
+            border: none;
+
+            padding:
+                16px
+                32px;
+
+            font-size: 1.1rem;
+
+            border-radius: 40px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f5b700,
+                    #ffbf00
+                );
+
+            color: white;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 25px
+                rgba(150, 110, 0, 0.22);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+
+        .boton-sorpresa:hover {
+            transform:
+                translateY(-3px)
+                scale(1.05);
+
+            box-shadow:
+                0 15px 30px
+                rgba(150, 110, 0, 0.28);
+        }
+
+
+        .boton-sorpresa:active {
+            transform: scale(0.97);
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        .footer {
+            position: absolute;
+
+            bottom: 25px;
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            width:
+                min(850px, 90%);
+
+            border-top:
+                1px solid
+                rgba(100, 75, 0, 0.20);
+
+            padding-top: 20px;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            gap: 35px;
+
+            font-size: 0.88rem;
+
+            color: #554500;
+        }
+
+
+        .footer-item {
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            text-align: left;
+        }
+
+
+        .developer-icon {
+            font-family:
+                Consolas,
+                "Courier New",
+                monospace;
+
+            font-weight: bold;
+
+            font-size: 1.7rem;
+        }
+
+
+        .footer-icon {
+            font-size: 1.7rem;
+        }
+
+
+        .footer-divider {
+            width: 1px;
+            height: 45px;
+
+            background:
+                rgba(100, 75, 0, 0.25);
+        }
+
+
+        .footer-title {
+            font-size: 0.78rem;
+
+            opacity: 0.7;
+
+            margin-bottom: 3px;
+        }
+
+
+        .footer-value {
+            font-weight: 600;
+        }
+
+
+        .footer a {
+            color: #554500;
+
+            text-decoration: none;
+        }
+
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================================
+           PANTALLA SORPRESA
+        ========================================= */
+
+        .sorpresa {
+            display: none;
+
+            min-height: 100vh;
+
+            padding:
+                50px
+                20px
+                60px;
+
+            text-align: center;
+
+            animation:
+                aparecer 1.3s ease;
+        }
+
+
+        .fecha {
+            font-size: 1rem;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 15px;
+
+            opacity: 0.8;
+        }
+
+
+        .sorpresa h2 {
+            font-size: 2.2rem;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================================
+           RAMO
+        ========================================= */
+
+        .ramo {
+            font-size: 4rem;
+
+            max-width: 500px;
+
+            margin:
+                20px auto 35px;
+
+            line-height: 1.2;
+
+            animation:
+                crecer 1.8s ease;
+        }
+
+
+        /* =========================================
+           MENSAJE
+        ========================================= */
+
+        .mensaje {
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.72
+                );
+
+            backdrop-filter:
+                blur(10px);
+
+            -webkit-backdrop-filter:
+                blur(10px);
+
+            max-width: 550px;
+
+            margin: auto;
+
+            padding: 35px;
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(100, 80, 0, 0.12);
+
+            font-size: 1.1rem;
+
+            line-height: 1.8;
+        }
+
+
+        .mensaje-titulo {
+            font-weight: 600;
+
+            font-size: 1.2rem;
+        }
+
+
+        .firma {
+            margin-top: 25px;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================================
+           FLORES CAYENDO
+        ========================================= */
+
+        .petalo {
+            position: fixed;
+
+            top: -50px;
+
+            z-index: 100;
+
+            font-size: 25px;
+
+            pointer-events: none;
+
+            animation:
+                caer linear forwards;
+        }
+
+
+        /* =========================================
+           ANIMACIONES
+        ========================================= */
+
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        @keyframes crecer {
+
+            0% {
+                transform:
+                    scale(0);
+
+                opacity: 0;
+            }
+
+            70% {
+                transform:
+                    scale(1.15);
+            }
+
+            100% {
+                transform:
+                    scale(1);
+
+                opacity: 1;
+            }
+        }
+
+
+        @keyframes flotar {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0)
+                    rotate(-2deg);
+            }
+
+            50% {
+                transform:
+                    translateY(-10px)
+                    rotate(2deg);
+            }
+        }
+
+
+        @keyframes caer {
+
+            from {
+                transform:
+                    translateY(-50px)
+                    rotate(0deg);
+
+                opacity: 1;
+            }
+
+            to {
+                transform:
+                    translateY(110vh)
+                    rotate(720deg);
+
+                opacity: 0.8;
+            }
+        }
+
+
+        /* =========================================
+           CELULAR
+        ========================================= */
+
+        @media (max-width: 650px) {
+
+            .inicio {
+                padding-bottom: 210px;
+            }
+
+
+            .flor-principal {
+                font-size: 4rem;
+            }
+
+
+            .inicio h1 {
+                font-size: 2rem;
+            }
+
+
+            .subtitulo {
+                font-size: 1rem;
+            }
+
+
+            .footer {
+                width: 85%;
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 12px;
+            }
+
+
+            .footer-divider {
+                width: 100%;
+                height: 1px;
+            }
+
+
+            .sorpresa h2 {
+                font-size: 1.8rem;
+            }
+
+
+            .ramo {
+                font-size: 3rem;
+            }
+
+
+            .mensaje {
+                padding: 25px;
+
+                font-size: 1rem;
+            }
+        }
+
+    </style>
 
 </head>
 
@@ -338,368 +537,466 @@
 <body>
 
 
-  <!-- =========================
-       PANTALLA INICIAL
-  ========================== -->
+    <!-- =========================================
+         PANTALLA INICIAL
+    ========================================== -->
 
-  <section class="inicio" id="inicio">
-
-
-    <div class="contenido-inicio">
-
-
-      <div class="flor-principal">
-        🌻
-      </div>
+    <section
+        class="inicio"
+        id="inicio"
+    >
 
 
-      <h1>
-        Ale, tengo algo para ti 💛
-      </h1>
+        <div class="contenido-inicio">
 
 
-      <p class="subtitulo">
-        Es algo pequeño, pero quería que lo tuvieras hoy.
-      </p>
+            <div class="flor-principal">
+                🌻
+            </div>
 
 
-      <button onclick="abrirSorpresa()">
-        Toca aquí 🌻
-      </button>
+            <h1>
+                Ale, tengo algo para ti 💛
+            </h1>
 
 
-    </div>
+            <p class="subtitulo">
+                Es algo pequeño, pero quería que lo tuvieras hoy.
+            </p>
 
 
+            <button
+                class="boton-sorpresa"
+                type="button"
+                onclick="abrirSorpresa()"
+            >
+                Toca aquí 🌻
+            </button>
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
-    <footer class="footer">
-
-
-      <!-- DESARROLLADOR -->
-
-      <div class="footer-item">
-
-        <div class="developer-icon">
-          &lt;/&gt;
-        </div>
-
-        <div>
-
-          <div class="footer-title">
-            Creado por
-          </div>
-
-          <div class="footer-value">
-
-            <a href="mailto:juan.castro.socla@gmail.com">
-              juan.castro.socla@gmail.com
-            </a>
-
-          </div>
 
         </div>
 
-      </div>
+
+
+        <!-- =====================================
+             FOOTER
+        ====================================== -->
+
+        <footer class="footer">
+
+
+            <!-- CREADO POR -->
+
+            <div class="footer-item">
+
+
+                <div class="developer-icon">
+                    &lt;/&gt;
+                </div>
+
+
+                <div>
+
+                    <div class="footer-title">
+                        Creado por
+                    </div>
+
+
+                    <div class="footer-value">
+
+                        <a
+                            href="mailto:juan.castro.socla@gmail.com"
+                        >
+                            juan.castro.socla@gmail.com
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+            </div>
 
 
 
-      <div class="footer-divider"></div>
+            <div class="footer-divider"></div>
 
 
 
-      <!-- FECHA -->
+            <!-- FECHA DEL SISTEMA -->
 
-      <div class="footer-item">
+            <div class="footer-item">
 
-        <div class="footer-icon">
-          📅
+
+                <div class="footer-icon">
+                    📅
+                </div>
+
+
+                <div>
+
+                    <div
+                        class="footer-value"
+                        id="fechaActual"
+                    >
+                    </div>
+
+
+                    <div class="footer-title">
+                        Día de las flores amarillas 💛
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </footer>
+
+
+    </section>
+
+
+
+    <!-- =========================================
+         SORPRESA
+    ========================================== -->
+
+    <section
+        class="sorpresa"
+        id="sorpresa"
+    >
+
+
+        <!-- FECHA TOMADA DEL SISTEMA -->
+
+        <div
+            class="fecha"
+            id="fechaSorpresa"
+        >
         </div>
 
-        <div>
 
-          <!-- FECHA GENERADA CON JAVASCRIPT -->
 
-          <div
-            class="footer-value"
-            id="fechaEvento">
-          </div>
+        <h2>
+            Tus flores amarillas 🌻💛
+        </h2>
 
-          <div class="footer-title">
-            Día de las flores amarillas 💛
-          </div>
+
+
+        <div class="ramo">
+
+            🌻 🌻 🌻
+            <br>
+
+            🌻 🌼 🌻 🌼
+            <br>
+
+            🌼 🌻 🌻 🌻 🌼
+            <br>
+
+            🌿 🌿 🌿
 
         </div>
 
-      </div>
 
 
-    </footer>
+        <div class="mensaje">
 
 
-  </section>
+            <p class="mensaje-titulo">
+                🌻 Para ti, Ale 💛
+            </p>
 
 
+            <br>
 
 
-  <!-- =========================
-       SORPRESA
-  ========================== -->
+            <p>
 
-  <section
-    class="sorpresa"
-    id="sorpresa">
+                Hoy no quería dejar pasar la oportunidad
+                de regalarte tus flores amarillas,
+                aunque esta vez sean de una manera diferente.
 
+            </p>
 
-    <!-- FECHA DINÁMICA -->
 
-    <div
-      class="fecha"
-      id="fechaSorpresa">
-    </div>
+            <br>
 
 
-    <h2>
-      Tus flores amarillas 🌻💛
-    </h2>
+            <p>
 
+                Espero que tengas un lindo día
+                y que estas pequeñas flores
+                te saquen una sonrisa. 🌻✨
 
+            </p>
 
-    <div class="ramo">
 
-      🌻 🌻 🌻
-      <br>
 
-      🌻 🌼 🌻 🌼
-      <br>
+            <div class="firma">
 
-      🌼 🌻 🌻 🌻 🌼
-      <br>
+                Con cariño,
+                <br>
 
-      🌿 🌿 🌿
+                Juan Carlos 💛
 
-    </div>
+            </div>
 
 
+        </div>
 
-    <div class="mensaje">
 
+    </section>
 
-      <p>
-        🌻 Para ti, Ale 💛
-      </p>
 
 
-      <br>
+    <script>
 
+        /* =========================================
+           FECHA ACTUAL DEL SISTEMA
+        ========================================= */
 
-      <p>
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
 
-        Hoy 21 de septiembre no quería dejar pasar
-        la oportunidad de regalarte tus flores amarillas,
-        aunque esta vez sean de una manera diferente.
+                /*
+                    new Date() obtiene la fecha
+                    actual del dispositivo/navegador.
+                */
 
-      </p>
+                const fechaSistema =
+                    new Date();
 
 
-      <br>
+                /*
+                    Ejemplo:
+                    21 de septiembre de 2026
+                */
 
+                const fechaCompleta =
+                    fechaSistema.toLocaleDateString(
+                        "es-PE",
+                        {
+                            day: "numeric",
+                            month: "long",
+                            year: "numeric"
+                        }
+                    );
 
-      <p>
 
-        Espero que tengas un lindo día y que estas
-        pequeñas flores te saquen una sonrisa. 🌻✨
+                /*
+                    Mostramos la fecha actual
+                    en el footer.
+                */
 
-      </p>
+                document.getElementById(
+                    "fechaActual"
+                ).textContent =
+                    fechaCompleta;
 
 
 
-      <div class="firma">
+                /*
+                    Creamos la versión superior:
 
-        Con cariño,
-        <br>
+                    21 • SEPTIEMBRE • 2026
+                */
 
-        Juan Carlos 💛
+                const dia =
+                    fechaSistema.getDate();
 
-      </div>
 
+                const mes =
+                    fechaSistema
+                        .toLocaleDateString(
+                            "es-PE",
+                            {
+                                month: "long"
+                            }
+                        )
+                        .toUpperCase();
 
-    </div>
 
+                const anio =
+                    fechaSistema.getFullYear();
 
-  </section>
 
+                document.getElementById(
+                    "fechaSorpresa"
+                ).textContent =
+                    `${dia} • ${mes} • ${anio}`;
 
+            }
+        );
 
 
-  <script>
 
+        /* =========================================
+           ABRIR SORPRESA
+        ========================================= */
 
-    /* =========================
-       FECHA DEL EVENTO
-    ========================== */
+        function abrirSorpresa() {
 
-    document.addEventListener(
-      "DOMContentLoaded",
-      function () {
+            const inicio =
+                document.getElementById(
+                    "inicio"
+                );
 
-        /*
-          Obtenemos automáticamente
-          el año actual.
-        */
 
-        const anioActual =
-          new Date().getFullYear();
+            const sorpresa =
+                document.getElementById(
+                    "sorpresa"
+                );
 
 
-        /*
-          El 21 de septiembre corresponde
-          al evento.
+            inicio.style.display =
+                "none";
 
-          El año NO está hardcodeado.
-        */
 
-        const fechaEvento =
-          `21 de septiembre de ${anioActual}`;
+            sorpresa.style.display =
+                "block";
 
 
-        /*
-          Mostramos fecha en el footer.
-        */
+            /*
+                Volvemos al inicio de la pantalla
+                cuando abre las flores.
+            */
 
-        document.getElementById(
-          "fechaEvento"
-        ).textContent =
-          fechaEvento;
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
 
 
-        /*
-          Fecha superior de la sorpresa.
-        */
+            crearPetalos();
 
-        document.getElementById(
-          "fechaSorpresa"
-        ).textContent =
-          `21 • SEPTIEMBRE • ${anioActual}`;
+        }
 
-      }
-    );
 
 
+        /* =========================================
+           CREAR FLORES CAYENDO
+        ========================================= */
 
-    /* =========================
-       ABRIR SORPRESA
-    ========================== */
+        function crearPetalos() {
 
-    function abrirSorpresa() {
-
-      document.getElementById(
-        "inicio"
-      ).style.display =
-        "none";
-
-
-      document.getElementById(
-        "sorpresa"
-      ).style.display =
-        "block";
-
-
-      crearPetalos();
-
-    }
-
-
-
-    /* =========================
-       ANIMACIÓN FLORES
-    ========================== */
-
-    function crearPetalos() {
-
-
-      for (
-        let i = 0;
-        i < 40;
-        i++
-      ) {
-
-
-        setTimeout(
-          () => {
-
-
-            const petalo =
-              document.createElement(
-                "div"
-              );
-
-
-            petalo.classList.add(
-              "petalo"
-            );
-
-
-            const flores = [
-              "🌻",
-              "💛",
-              "🌼"
+            const elementos = [
+                "🌻",
+                "💛",
+                "🌼"
             ];
 
 
-            petalo.innerHTML =
-              flores[
-                Math.floor(
-                  Math.random()
-                  * flores.length
-                )
-              ];
+            for (
+                let i = 0;
+                i < 40;
+                i++
+            ) {
 
 
-            petalo.style.left =
-              Math.random()
-              * 100
-              + "vw";
+                setTimeout(
+                    function () {
 
 
-            petalo.style.animationDuration =
-              (
-                4
-                + Math.random()
-                * 5
-              )
-              + "s";
+                        const petalo =
+                            document.createElement(
+                                "div"
+                            );
 
 
-            document.body.appendChild(
-              petalo
-            );
+                        petalo.classList.add(
+                            "petalo"
+                        );
 
 
+                        /*
+                            Elegimos aleatoriamente
+                            una flor o corazón.
+                        */
 
-            setTimeout(
-              () => {
-
-                petalo.remove();
-
-              },
-              9000
-            );
-
-
-          },
-          i * 150
-        );
-
-      }
-
-    }
+                        const elementoAleatorio =
+                            elementos[
+                                Math.floor(
+                                    Math.random()
+                                    * elementos.length
+                                )
+                            ];
 
 
-  </script>
+                        petalo.textContent =
+                            elementoAleatorio;
+
+
+                        /*
+                            Posición horizontal aleatoria.
+                        */
+
+                        petalo.style.left =
+                            Math.random()
+                            * 100
+                            + "vw";
+
+
+                        /*
+                            Tamaño ligeramente aleatorio.
+                        */
+
+                        petalo.style.fontSize =
+                            (
+                                18
+                                +
+                                Math.random()
+                                * 20
+                            )
+                            + "px";
+
+
+                        /*
+                            Velocidad de caída aleatoria.
+                        */
+
+                        petalo.style.animationDuration =
+                            (
+                                4
+                                +
+                                Math.random()
+                                * 5
+                            )
+                            + "s";
+
+
+                        document.body.appendChild(
+                            petalo
+                        );
+
+
+                        /*
+                            Eliminamos el elemento
+                            cuando termina la animación.
+                        */
+
+                        setTimeout(
+                            function () {
+
+                                petalo.remove();
+
+                            },
+                            9500
+                        );
+
+
+                    },
+                    i * 150
+                );
+
+            }
+
+        }
+
+    </script>
 
 
 </body>

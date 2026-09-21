@@ -1,207 +1,169 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Para Ale 🌻💛</title>
 
     <style>
-
-        /* ==================================================
-           GENERAL
-        ================================================== */
-
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
-        html,
-        body {
+        html, body {
             min-height: 100%;
         }
 
         body {
             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
-
             background:
-                radial-gradient(
-                    circle at center,
-                    rgba(255, 255, 255, 0.45),
-                    transparent 50%
-                ),
-                linear-gradient(
-                    135deg,
-                    #fff8c6,
-                    #ffe66d
-                );
-
+                radial-gradient(circle at center, rgba(255,255,255,.45), transparent 50%),
+                linear-gradient(135deg, #fff8c6, #ffe66d);
             color: #4d3b00;
             overflow-x: hidden;
         }
 
-
-        /* ==================================================
-           PANTALLA INICIAL
-        ================================================== */
-
+        /* PRIMERA PANTALLA */
         .inicio {
             min-height: 100vh;
-
             display: flex;
             flex-direction: column;
-
             position: relative;
-
-            padding: 30px 20px 130px;
+            padding: 30px 20px 145px;
         }
 
         .contenido-inicio {
             flex: 1;
-
             display: flex;
             flex-direction: column;
-
             justify-content: center;
             align-items: center;
-
             text-align: center;
-
             animation: aparecer 1.3s ease;
         }
 
         .flor-principal {
-            font-size: 5rem;
-
-            margin-bottom: 20px;
-
-            animation:
-                flotar 3s
-                ease-in-out
-                infinite;
-
-            filter:
-                drop-shadow(
-                    0 8px 10px
-                    rgba(120, 90, 0, 0.15)
-                );
+            font-size: 4.5rem;
+            margin-bottom: 10px;
+            animation: flotar 3s ease-in-out infinite;
+            filter: drop-shadow(0 8px 10px rgba(120,90,0,.15));
         }
 
         .inicio h1 {
             font-size: 2.5rem;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
+        }
+
+        /* FOTO DE ARES */
+        .foto-ares {
+            width: 135px;
+            height: 135px;
+            margin: 0 auto 8px;
+            padding: 4px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.82);
+            box-shadow: 0 10px 30px rgba(100,75,0,.18);
+            animation: aparecerFoto 1.3s ease;
+        }
+
+        .foto-ares img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: 38% center;
+            border-radius: 50%;
+        }
+
+        .foto-texto {
+            margin-bottom: 16px;
+            font-size: .86rem;
+            font-weight: 500;
+            color: #6b5200;
+            opacity: .72;
         }
 
         .subtitulo {
-            font-size: 1.15rem;
-            margin-bottom: 30px;
-            opacity: 0.85;
-
             max-width: 650px;
+            margin-bottom: 15px;
+            font-size: 1.15rem;
             line-height: 1.7;
+            opacity: .85;
         }
 
-
-        /* ==================================================
-           BOTÓN PRINCIPAL
-        ================================================== */
+        .detalle-especial {
+            max-width: 650px;
+            margin-bottom: 25px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #6b5200;
+            line-height: 1.6;
+            letter-spacing: .2px;
+        }
 
         .boton-sorpresa {
             border: none;
-
             padding: 16px 32px;
-
             font-size: 1.1rem;
-
             border-radius: 40px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #f5b700,
-                    #ffbf00
-                );
-
+            background: linear-gradient(135deg, #f5b700, #ffbf00);
             color: white;
-
             cursor: pointer;
-
-            box-shadow:
-                0 10px 25px
-                rgba(150, 110, 0, 0.22);
-
-            transition:
-                transform 0.3s ease,
-                box-shadow 0.3s ease;
+            box-shadow: 0 10px 25px rgba(150,110,0,.22);
+            transition: transform .3s ease, box-shadow .3s ease;
         }
 
         .boton-sorpresa:hover {
-            transform:
-                translateY(-3px)
-                scale(1.05);
-
-            box-shadow:
-                0 15px 30px
-                rgba(150, 110, 0, 0.28);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(150,110,0,.28);
         }
 
         .boton-sorpresa:active {
-            transform: scale(0.97);
+            transform: scale(.97);
         }
 
-
-        /* ==================================================
-           FOOTER
-        ================================================== */
-
+        /* FOOTERS */
         .footer {
             position: absolute;
-
             bottom: 25px;
             left: 50%;
-
             transform: translateX(-50%);
-
             width: min(850px, 90%);
-
-            border-top:
-                1px solid
-                rgba(100, 75, 0, 0.20);
-
+            border-top: 1px solid rgba(100,75,0,.20);
             padding-top: 20px;
-
             display: flex;
-
             justify-content: center;
             align-items: center;
-
             gap: 35px;
+            font-size: .88rem;
+            color: #554500;
+        }
 
-            font-size: 0.88rem;
-
+        .footer-sorpresa {
+            width: min(850px, 90%);
+            margin: 55px auto 0;
+            border-top: 1px solid rgba(100,75,0,.20);
+            padding-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 35px;
+            font-size: .88rem;
             color: #554500;
         }
 
         .footer-item {
             display: flex;
-
             align-items: center;
-
             gap: 12px;
-
             text-align: left;
         }
 
         .developer-icon {
-            font-family:
-                Consolas,
-                "Courier New",
-                monospace;
-
+            font-family: Consolas, "Courier New", monospace;
             font-weight: bold;
             font-size: 1.7rem;
         }
@@ -213,16 +175,12 @@
         .footer-divider {
             width: 1px;
             height: 45px;
-
-            background:
-                rgba(100, 75, 0, 0.25);
+            background: rgba(100,75,0,.25);
         }
 
         .footer-title {
-            font-size: 0.78rem;
-
-            opacity: 0.70;
-
+            font-size: .78rem;
+            opacity: .70;
             margin-bottom: 3px;
         }
 
@@ -241,105 +199,49 @@
             text-decoration: underline;
         }
 
-
-        /* ==================================================
-           PANTALLA SORPRESA
-        ================================================== */
-
+        /* SEGUNDA PANTALLA */
         .sorpresa {
             display: none;
-
             min-height: 100vh;
-
             padding: 70px 20px 45px;
-
             position: relative;
-
             text-align: center;
-
             animation: aparecer 1.3s ease;
         }
 
-
-        /* ==================================================
-           BOTÓN VOLVER
-        ================================================== */
-
         .btn-volver {
             position: fixed;
-
             top: 25px;
             left: 30px;
-
             display: flex;
-
             align-items: center;
-
             gap: 8px;
-
             padding: 11px 18px;
-
-            border:
-                1px solid
-                rgba(77, 59, 0, 0.15);
-
+            border: 1px solid rgba(77,59,0,.15);
             border-radius: 30px;
-
-            background:
-                rgba(255, 255, 255, 0.60);
-
+            background: rgba(255,255,255,.60);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-
             color: #4d3b00;
-
-            font-size: 0.95rem;
+            font-size: .95rem;
             font-weight: 600;
-
             cursor: pointer;
-
-            box-shadow:
-                0 6px 20px
-                rgba(100, 80, 0, 0.10);
-
-            transition:
-                transform 0.3s ease,
-                background 0.3s ease,
-                box-shadow 0.3s ease;
-
+            box-shadow: 0 6px 20px rgba(100,80,0,.10);
+            transition: transform .3s ease, background .3s ease, box-shadow .3s ease;
             z-index: 200;
         }
 
         .btn-volver:hover {
-            background:
-                rgba(255, 255, 255, 0.90);
-
+            background: rgba(255,255,255,.90);
             transform: translateX(-4px);
-
-            box-shadow:
-                0 8px 25px
-                rgba(100, 80, 0, 0.15);
+            box-shadow: 0 8px 25px rgba(100,80,0,.15);
         }
-
-        .btn-volver:active {
-            transform:
-                translateX(-2px)
-                scale(0.97);
-        }
-
-
-        /* ==================================================
-           FECHA
-        ================================================== */
 
         .fecha {
             font-size: 1rem;
-
             letter-spacing: 3px;
-
             margin-bottom: 15px;
-
-            opacity: 0.75;
+            opacity: .75;
         }
 
         .sorpresa h2 {
@@ -347,54 +249,24 @@
             margin-bottom: 30px;
         }
 
-
-        /* ==================================================
-           RAMO
-        ================================================== */
-
         .ramo {
             font-size: 4rem;
-
             max-width: 500px;
-
             margin: 20px auto 35px;
-
             line-height: 1.2;
-
             animation: crecer 1.8s ease;
         }
 
-
-        /* ==================================================
-           MENSAJE
-        ================================================== */
-
         .mensaje {
-            background:
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.72
-                );
-
+            background: rgba(255,255,255,.72);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-
             max-width: 550px;
-
             margin: auto;
-
             padding: 35px;
-
             border-radius: 25px;
-
-            box-shadow:
-                0 15px 40px
-                rgba(100, 80, 0, 0.12);
-
+            box-shadow: 0 15px 40px rgba(100,80,0,.12);
             font-size: 1.1rem;
-
             line-height: 1.8;
         }
 
@@ -408,164 +280,85 @@
             font-weight: bold;
         }
 
-
-        /* ==================================================
-           FOOTER SEGUNDA PANTALLA
-        ================================================== */
-
-        .footer-sorpresa {
-            width: min(850px, 90%);
-
-            margin: 55px auto 0;
-
-            border-top:
-                1px solid
-                rgba(100, 75, 0, 0.20);
-
-            padding-top: 20px;
-
-            display: flex;
-
-            justify-content: center;
-            align-items: center;
-
-            gap: 35px;
-
-            font-size: 0.88rem;
-
-            color: #554500;
-        }
-
-
-        /* ==================================================
-           FLORES CAYENDO
-        ================================================== */
-
         .petalo {
             position: fixed;
-
             top: -50px;
-
             z-index: 100;
-
             pointer-events: none;
-
             animation: caer linear forwards;
         }
 
-
-        /* ==================================================
-           ANIMACIONES
-        ================================================== */
-
         @keyframes aparecer {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        @keyframes aparecerFoto {
+            from { opacity: 0; transform: scale(.80) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
         }
 
         @keyframes crecer {
-
-            0% {
-                transform: scale(0);
-                opacity: 0;
-            }
-
-            70% {
-                transform: scale(1.15);
-            }
-
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
+            0% { transform: scale(0); opacity: 0; }
+            70% { transform: scale(1.15); }
+            100% { transform: scale(1); opacity: 1; }
         }
 
         @keyframes flotar {
-
-            0%,
-            100% {
-                transform:
-                    translateY(0)
-                    rotate(-2deg);
-            }
-
-            50% {
-                transform:
-                    translateY(-10px)
-                    rotate(2deg);
-            }
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
         }
 
         @keyframes caer {
-
-            from {
-                transform:
-                    translateY(-50px)
-                    rotate(0deg);
-
-                opacity: 1;
-            }
-
-            to {
-                transform:
-                    translateY(110vh)
-                    rotate(720deg);
-
-                opacity: 0.7;
-            }
+            from { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+            to { transform: translateY(110vh) rotate(720deg); opacity: .7; }
         }
 
-
-        /* ==================================================
-           RESPONSIVE
-        ================================================== */
-
         @media (max-width: 650px) {
-
             .inicio {
-                padding-bottom: 220px;
+                padding: 25px 20px 235px;
+            }
+
+            .contenido-inicio {
+                justify-content: flex-start;
+                padding-top: 15px;
             }
 
             .flor-principal {
-                font-size: 4rem;
+                font-size: 3.5rem;
+                margin-bottom: 5px;
             }
 
             .inicio h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+                margin-bottom: 14px;
+            }
+
+            .foto-ares {
+                width: 110px;
+                height: 110px;
+            }
+
+            .foto-texto {
+                margin-bottom: 12px;
             }
 
             .subtitulo {
+                font-size: .98rem;
+                margin-bottom: 12px;
+            }
+
+            .detalle-especial {
                 font-size: 1rem;
+                margin-bottom: 20px;
             }
 
-            .footer {
-                width: 85%;
-
-                flex-direction: column;
-
-                align-items: flex-start;
-
-                gap: 12px;
-            }
-
+            .footer,
             .footer-sorpresa {
                 width: 85%;
-
                 flex-direction: column;
-
                 align-items: flex-start;
-
                 gap: 12px;
-
-                margin-top: 40px;
             }
 
             .footer-divider {
@@ -573,13 +366,15 @@
                 height: 1px;
             }
 
+            .footer-sorpresa {
+                margin-top: 40px;
+            }
+
             .btn-volver {
                 top: 15px;
                 left: 15px;
-
                 padding: 9px 14px;
-
-                font-size: 0.85rem;
+                font-size: .85rem;
             }
 
             .sorpresa {
@@ -596,34 +391,30 @@
 
             .mensaje {
                 padding: 25px;
-
                 font-size: 1rem;
             }
         }
-
     </style>
 </head>
 
 <body>
 
-    <!-- ==================================================
-         PANTALLA INICIAL
-    =================================================== -->
-
-    <section
-        class="inicio"
-        id="inicio"
-    >
+    <!-- PRIMERA PANTALLA -->
+    <section class="inicio" id="inicio">
 
         <div class="contenido-inicio">
 
-            <div class="flor-principal">
-                🌻
+            <div class="flor-principal">🌻</div>
+
+            <h1>Ale, tengo algo para ti 💛</h1>
+
+            <div class="foto-ares">
+                <img src="ares.jpg" alt="Ares">
             </div>
 
-            <h1>
-                Ale, tengo algo para ti 💛
-            </h1>
+            <p class="foto-texto">
+                Con la supervisión de Ares 🐾
+            </p>
 
             <p class="subtitulo">
                 Tú sabes que no necesito una fecha especial para regalarte flores. 🌻
@@ -631,68 +422,46 @@
                 Es algo pequeño, pero quería que lo tuvieras hoy. 🤍
             </p>
 
+            <p class="detalle-especial">
+                Un detalle con mucho cariño para una persona maravillosa 🌻
+            </p>
+
             <button
                 class="boton-sorpresa"
                 type="button"
-                onclick="abrirSorpresa()"
-            >
+                onclick="abrirSorpresa()">
                 Toca aquí 🌻
             </button>
 
         </div>
 
-
-        <!-- FOOTER PRIMERA PANTALLA -->
-
         <footer class="footer">
 
             <div class="footer-item">
-
-                <div class="developer-icon">
-                    &lt;/&gt;
-                </div>
+                <div class="developer-icon">&lt;/&gt;</div>
 
                 <div>
-
-                    <div class="footer-title">
-                        Creado por
-                    </div>
+                    <div class="footer-title">Creado por</div>
 
                     <div class="footer-value">
-
                         <a href="mailto:juan.castro.socla@gmail.com">
                             juan.castro.socla@gmail.com
                         </a>
-
                     </div>
-
                 </div>
-
             </div>
-
 
             <div class="footer-divider"></div>
 
-
             <div class="footer-item">
-
-                <div class="footer-icon">
-                    📅
-                </div>
+                <div class="footer-icon">📅</div>
 
                 <div>
-
-                    <div
-                        class="footer-value"
-                        id="fechaActual"
-                    ></div>
-
+                    <div class="footer-value" id="fechaActual"></div>
                     <div class="footer-title">
                         Día de las flores amarillas 💛
                     </div>
-
                 </div>
-
             </div>
 
         </footer>
@@ -700,59 +469,30 @@
     </section>
 
 
-    <!-- ==================================================
-         SEGUNDA PANTALLA
-    =================================================== -->
-
-    <section
-        class="sorpresa"
-        id="sorpresa"
-    >
-
-        <!-- BOTÓN VOLVER -->
+    <!-- SEGUNDA PANTALLA -->
+    <section class="sorpresa" id="sorpresa">
 
         <button
             class="btn-volver"
             type="button"
             onclick="volverInicio()"
-            aria-label="Volver al inicio"
-        >
+            aria-label="Volver al inicio">
             ← Volver
         </button>
 
+        <div class="fecha" id="fechaSorpresa"></div>
 
-        <!-- FECHA -->
-
-        <div
-            class="fecha"
-            id="fechaSorpresa"
-        ></div>
-
-
-        <h2>
-            Tus flores amarillas 🌻💛
-        </h2>
-
-
-        <!-- RAMO -->
+        <h2>Tus flores amarillas 🌻💛</h2>
 
         <div class="ramo">
-
             🌻 🌻 🌻
             <br>
-
             🌻 🌼 🌻 🌼
             <br>
-
             🌼 🌻 🌻 🌻 🌼
             <br>
-
             🌿 🌿 🌿
-
         </div>
-
-
-        <!-- MENSAJE -->
 
         <div class="mensaje">
 
@@ -777,68 +517,40 @@
             </p>
 
             <div class="firma">
-
                 Con cariño,
                 <br>
-
                 JuanKa 💛
-
             </div>
 
         </div>
 
-
-        <!-- FOOTER SEGUNDA PANTALLA -->
-
         <footer class="footer-sorpresa">
 
             <div class="footer-item">
-
-                <div class="developer-icon">
-                    &lt;/&gt;
-                </div>
+                <div class="developer-icon">&lt;/&gt;</div>
 
                 <div>
-
-                    <div class="footer-title">
-                        Creado por
-                    </div>
+                    <div class="footer-title">Creado por</div>
 
                     <div class="footer-value">
-
                         <a href="mailto:juan.castro.socla@gmail.com">
                             juan.castro.socla@gmail.com
                         </a>
-
                     </div>
-
                 </div>
-
             </div>
-
 
             <div class="footer-divider"></div>
 
-
             <div class="footer-item">
-
-                <div class="footer-icon">
-                    📅
-                </div>
+                <div class="footer-icon">📅</div>
 
                 <div>
-
-                    <div
-                        class="footer-value"
-                        id="fechaActualSorpresa"
-                    ></div>
-
+                    <div class="footer-value" id="fechaActualSorpresa"></div>
                     <div class="footer-title">
                         Día de las flores amarillas 💛
                     </div>
-
                 </div>
-
             </div>
 
         </footer>
@@ -847,289 +559,137 @@
 
 
     <script>
+        let animacionId = 0;
 
-        /* ==================================================
-           CARGA INICIAL
-        ================================================== */
-
-        document.addEventListener(
-            "DOMContentLoaded",
-            function () {
-
-                actualizarFecha();
-
-            }
-        );
-
-
-        /* ==================================================
-           FECHA DEL SISTEMA
-        ================================================== */
+        document.addEventListener("DOMContentLoaded", function () {
+            actualizarFecha();
+        });
 
         function actualizarFecha() {
-
             const fechaSistema = new Date();
 
+            const fechaCompleta = fechaSistema.toLocaleDateString(
+                "es-PE",
+                {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric"
+                }
+            );
 
-            /*
-                Ejemplo:
-                21 de setiembre de 2026
-            */
+            document.getElementById("fechaActual").textContent =
+                fechaCompleta;
 
-            const fechaCompleta =
-                fechaSistema.toLocaleDateString(
+            document.getElementById("fechaActualSorpresa").textContent =
+                fechaCompleta;
+
+            const dia = fechaSistema.getDate();
+
+            const mes = fechaSistema
+                .toLocaleDateString(
                     "es-PE",
-                    {
-                        day: "numeric",
-                        month: "long",
-                        year: "numeric"
-                    }
-                );
+                    { month: "long" }
+                )
+                .toUpperCase();
 
+            const anio = fechaSistema.getFullYear();
 
-            /* Primera pantalla */
-
-            document.getElementById(
-                "fechaActual"
-            ).textContent =
-                fechaCompleta;
-
-
-            /* Segunda pantalla */
-
-            document.getElementById(
-                "fechaActualSorpresa"
-            ).textContent =
-                fechaCompleta;
-
-
-            /* Fecha superior */
-
-            const dia =
-                fechaSistema.getDate();
-
-
-            const mes =
-                fechaSistema
-                    .toLocaleDateString(
-                        "es-PE",
-                        {
-                            month: "long"
-                        }
-                    )
-                    .toUpperCase();
-
-
-            const anio =
-                fechaSistema.getFullYear();
-
-
-            document.getElementById(
-                "fechaSorpresa"
-            ).textContent =
+            document.getElementById("fechaSorpresa").textContent =
                 `${dia} • ${mes} • ${anio}`;
-
         }
 
-
-        /* ==================================================
-           ABRIR SORPRESA
-        ================================================== */
-
         function abrirSorpresa() {
-
-            const inicio =
-                document.getElementById(
-                    "inicio"
-                );
-
-
-            const sorpresa =
-                document.getElementById(
-                    "sorpresa"
-                );
-
+            const inicio = document.getElementById("inicio");
+            const sorpresa = document.getElementById("sorpresa");
 
             actualizarFecha();
 
-
-            inicio.style.display =
-                "none";
-
-
-            sorpresa.style.display =
-                "block";
-
+            inicio.style.display = "none";
+            sorpresa.style.display = "block";
 
             window.scrollTo({
                 top: 0,
                 behavior: "smooth"
             });
 
-
-            crearPetalos();
-
+            animacionId++;
+            crearPetalos(animacionId);
         }
-
-
-        /* ==================================================
-           VOLVER
-        ================================================== */
 
         function volverInicio() {
+            const inicio = document.getElementById("inicio");
+            const sorpresa = document.getElementById("sorpresa");
 
-            const inicio =
-                document.getElementById(
-                    "inicio"
-                );
+            /* Invalida los temporizadores de la animación anterior */
+            animacionId++;
 
-
-            const sorpresa =
-                document.getElementById(
-                    "sorpresa"
-                );
-
-
-            sorpresa.style.display =
-                "none";
-
-
-            inicio.style.display =
-                "flex";
-
-
-            /*
-                Eliminamos las flores que
-                todavía estén cayendo.
-            */
+            sorpresa.style.display = "none";
+            inicio.style.display = "flex";
 
             document
-                .querySelectorAll(
-                    ".petalo"
-                )
-                .forEach(
-                    function (petalo) {
-
-                        petalo.remove();
-
-                    }
-                );
-
+                .querySelectorAll(".petalo")
+                .forEach(function (petalo) {
+                    petalo.remove();
+                });
 
             window.scrollTo({
                 top: 0,
                 behavior: "smooth"
             });
-
         }
 
+        function crearPetalos(idActual) {
+            const elementos = ["🌻", "💛", "🌼"];
 
-        /* ==================================================
-           ANIMACIÓN DE FLORES
-        ================================================== */
+            for (let i = 0; i < 40; i++) {
+                setTimeout(function () {
 
-        function crearPetalos() {
+                    const sorpresa =
+                        document.getElementById("sorpresa");
 
-            const elementos = [
-                "🌻",
-                "💛",
-                "🌼"
-            ];
+                    /*
+                       Evita que una animación anterior vuelva
+                       a crear flores si se pulsa Volver y luego
+                       se abre la sorpresa rápidamente.
+                    */
+                    if (
+                        idActual !== animacionId ||
+                        sorpresa.style.display === "none"
+                    ) {
+                        return;
+                    }
 
+                    const petalo =
+                        document.createElement("div");
 
-            for (
-                let i = 0;
-                i < 40;
-                i++
-            ) {
+                    petalo.classList.add("petalo");
 
-                setTimeout(
-                    function () {
-
-                        const sorpresa =
-                            document.getElementById(
-                                "sorpresa"
-                            );
-
-
-                        if (
-                            sorpresa.style.display
-                            === "none"
-                        ) {
-                            return;
-                        }
-
-
-                        const petalo =
-                            document.createElement(
-                                "div"
-                            );
-
-
-                        petalo.classList.add(
-                            "petalo"
-                        );
-
-
-                        petalo.textContent =
-                            elementos[
-                                Math.floor(
-                                    Math.random()
-                                    * elementos.length
-                                )
-                            ];
-
-
-                        petalo.style.left =
-                            Math.random()
-                            * 100
-                            + "vw";
-
-
-                        petalo.style.fontSize =
-                            (
-                                18
-                                +
-                                Math.random()
-                                * 20
+                    petalo.textContent =
+                        elementos[
+                            Math.floor(
+                                Math.random() * elementos.length
                             )
-                            + "px";
+                        ];
 
+                    petalo.style.left =
+                        Math.random() * 100 + "vw";
 
-                        petalo.style.animationDuration =
-                            (
-                                4
-                                +
-                                Math.random()
-                                * 5
-                            )
-                            + "s";
+                    petalo.style.fontSize =
+                        (18 + Math.random() * 20) + "px";
 
+                    petalo.style.animationDuration =
+                        (4 + Math.random() * 5) + "s";
 
-                        document.body.appendChild(
-                            petalo
-                        );
+                    document.body.appendChild(petalo);
 
+                    setTimeout(function () {
+                        petalo.remove();
+                    }, 9500);
 
-                        setTimeout(
-                            function () {
-
-                                petalo.remove();
-
-                            },
-                            9500
-                        );
-
-                    },
-                    i * 150
-                );
-
+                }, i * 150);
             }
-
         }
-
     </script>
 
 </body>
-
 </html>
